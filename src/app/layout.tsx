@@ -17,16 +17,39 @@ const sora = Sora({
   display: "swap",
 });
 
+const SITE_URL = "https://ethan-dao.apps.neooi.com";
+const TITLE = "Ethan Dao — Realtor | Dallas–Fort Worth Real Estate | eXp Realty";
+const DESCRIPTION =
+  "Ethan Dao (Tung Dao) is a Top Producer Realtor with eXp Realty and the Texas Ace Team, helping buyers, sellers, and investors across the Dallas–Fort Worth Metroplex. Bilingual English–Vietnamese service.";
+
 export const metadata: Metadata = {
-  title: "Ethan Dao — Realtor | Dallas–Fort Worth Real Estate | eXp Realty",
-  description:
-    "Ethan Dao (Tung Dao) is a Top Producer Realtor with eXp Realty and the Texas Ace Team, helping buyers, sellers, and investors across the Dallas–Fort Worth Metroplex. Bilingual English–Vietnamese service.",
-  icons: {
-    icon: [
-      { url: "/seo/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/seo/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/seo/favicon.ico" },
-    ],
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  keywords: [
+    "Ethan Dao",
+    "Tung Dao",
+    "Realtor Dallas Fort Worth",
+    "DFW real estate agent",
+    "eXp Realty",
+    "Texas Ace Team",
+    "McKinney homes",
+    "Lavon new homes",
+    "Vietnamese realtor Dallas",
+  ],
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Ethan Dao — Realtor",
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 
