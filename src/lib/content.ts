@@ -14,7 +14,7 @@ export const AGENT = {
   legalName: "Tung Dao",
   wordmark: "ETHAN DAO",
   role: "Realtor",
-  tagline: "Top Producer 2025 & 2026 · Dallas–Fort Worth",
+  tagline: "Top Producer 2024 & 2025 · Dallas–Fort Worth",
   brokerage: "eXp Realty",
   team: "Texas Ace Team",
 };

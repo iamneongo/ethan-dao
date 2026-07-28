@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Sora, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const hanken = Hanken_Grotesk({
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const sora = Sora({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -28,11 +36,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} h-full antialiased`}>
+    <html lang="en" className={`${hanken.variable} ${sora.variable} h-full antialiased`}>
       <body
         suppressHydrationWarning
         className="min-h-full flex flex-col bg-white text-ink font-sans"
       >
+        <SmoothScroll />
         {children}
       </body>
     </html>

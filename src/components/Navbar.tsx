@@ -44,10 +44,10 @@ export function Navbar({ onOpenMenu }: { onOpenMenu: () => void }) {
             scrolled ? "text-ink-strong" : "text-white"
           )}
         >
-          <span className="text-xl font-bold tracking-[0.22em] lg:text-2xl">
+          <span className="font-display text-xl font-extrabold tracking-[0.16em] lg:text-[1.7rem]">
             {AGENT.wordmark}
           </span>
-          <span className="mt-1 text-[10px] font-medium tracking-[0.42em] text-gold lg:text-[11px]">
+          <span className="mt-0.5 text-[10px] font-semibold tracking-[0.42em] text-gold lg:text-[11px]">
             {AGENT.role.toUpperCase()}
           </span>
         </a>

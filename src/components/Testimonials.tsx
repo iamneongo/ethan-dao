@@ -1,39 +1,52 @@
-import { AWARDS } from "@/lib/content";
-import { StarIcon } from "@/components/icons";
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 
 export function Testimonials() {
   return (
-    <section className="bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-[1200px] px-6">
-        <Reveal>
-          <h2 className="h-section-title text-center text-ink-strong">
-            Awards &amp; Recognition
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-[15px] leading-relaxed text-ink">
-            Recognized by the Texas Ace Team and trusted by a growing community across the
-            Dallas–Fort Worth Metroplex.
-          </p>
+    <section className="relative overflow-hidden bg-ink-black py-20 text-white lg:py-28">
+      {/* Ambient gold glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/4 top-1/2 h-[32rem] w-[32rem] -translate-y-1/2 rounded-full bg-gold/15 blur-[130px]"
+      />
+
+      <div className="relative mx-auto grid max-w-[1200px] items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
+        {/* Trophy image */}
+        <Reveal className="order-2 flex justify-center lg:order-1">
+          <Image
+            src="/images/ethan-awards.png"
+            alt="Texas Ace Team Top Producer crystal awards for Ethan Dao, 2024 and 2025"
+            width={1024}
+            height={955}
+            sizes="(max-width: 1024px) 90vw, 540px"
+            className="h-auto w-full max-w-[540px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)]"
+          />
         </Reveal>
 
-        <div className="mt-14 grid gap-7 md:grid-cols-3">
-          {AWARDS.map((a, i) => (
-            <Reveal key={a.title} delay={i * 90}>
-              <article className="flex h-full flex-col items-center rounded-md border border-line bg-white p-8 text-center shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gold/15 text-gold">
-                  <StarIcon className="h-7 w-7" />
-                </span>
-                <h3 className="mt-5 text-lg font-semibold uppercase tracking-wide text-ink-strong">
-                  {a.title}
-                </h3>
-                <p className="mt-1 text-[13px] font-medium uppercase tracking-[0.1em] text-gold">
-                  {a.org}
-                </p>
-                <p className="mt-4 text-[13px] leading-relaxed text-ink">{a.note}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        {/* Copy */}
+        <Reveal delay={120} className="order-1 lg:order-2">
+          <span className="h-kicker text-white/80 [&::before]:bg-gold">Recognition</span>
+          <h2 className="h-section-title mt-4">
+            Back-to-Back <span className="text-gold">Top Producer</span>
+          </h2>
+          <p className="mt-6 max-w-[60ch] text-[15px] leading-[1.8] text-white/80">
+            Named a Top Producer with the <strong className="font-semibold text-white">Texas Ace Team
+            at eXp Realty</strong> in both 2024 and 2025 — recognized for consistent top-tier sales
+            performance and client results across the Dallas–Fort Worth Metroplex, backed by a
+            15,000+ community across YouTube, Facebook, TikTok, and Instagram.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {["Top Producer 2024", "Top Producer 2025", "15K+ Community"].map((label) => (
+              <span
+                key={label}
+                className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[13px] font-semibold text-white/90"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
