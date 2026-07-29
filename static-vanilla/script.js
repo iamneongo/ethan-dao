@@ -18,21 +18,24 @@ function buildSocialLinks(target) {
 document.querySelectorAll(".social-links,.floating-social").forEach(buildSocialLinks);
 
 const navbar = document.querySelector("[data-navbar]");
-const updateNavbar = () => navbar.classList.toggle("scrolled", window.scrollY > 80);
-updateNavbar();
-window.addEventListener("scroll", updateNavbar, { passive: true });
+if (navbar) {
+  const updateNavbar = () => navbar.classList.toggle("scrolled", window.scrollY > 80);
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, { passive: true });
+}
 
 const sideMenu = document.querySelector("[data-side-menu]");
 const menuOverlay = document.querySelector("[data-menu-overlay]");
 const setMenu = (open) => {
+  if (!sideMenu || !menuOverlay) return;
   sideMenu.classList.toggle("open", open);
   menuOverlay.classList.toggle("open", open);
   document.body.style.overflow = open ? "hidden" : "";
 };
-document.querySelector("[data-open-menu]").addEventListener("click", () => setMenu(true));
-document.querySelector("[data-close-menu]").addEventListener("click", () => setMenu(false));
-menuOverlay.addEventListener("click", () => setMenu(false));
-sideMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+document.querySelector("[data-open-menu]")?.addEventListener("click", () => setMenu(true));
+document.querySelector("[data-close-menu]")?.addEventListener("click", () => setMenu(false));
+menuOverlay?.addEventListener("click", () => setMenu(false));
+sideMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
 
 document.querySelectorAll("[data-tab]").forEach((button) => {
   button.addEventListener("click", () => {
@@ -69,6 +72,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 const salesTrack = document.querySelector("[data-sales-track]");
 document.querySelectorAll("[data-scroll-sales]").forEach((button) => {
   button.addEventListener("click", () => {
+    if (!salesTrack) return;
     const direction = Number(button.getAttribute("data-scroll-sales"));
     salesTrack.scrollBy({ left: direction * salesTrack.clientWidth * 0.6, behavior: "smooth" });
   });
@@ -88,3 +92,40 @@ function updateParallax() {
 }
 updateParallax();
 window.addEventListener("scroll", updateParallax, { passive: true });
+
+const currentPage = location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll(`a[href="${currentPage}"]`).forEach((link) => link.classList.add("is-current"));
+
+document.querySelectorAll("[data-static-form]").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const success = form.querySelector(".form-success");
+    if (success) success.hidden = false;
+  });
+});
+
+document.querySelectorAll(".property-filter").forEach((filter) => {
+  const buttons = filter.querySelectorAll("[data-property-filter]");
+  const search = filter.querySelector("[data-property-search]");
+  const list = filter.nextElementSibling;
+  const cards = list ? [...list.querySelectorAll("[data-status]")] : [];
+  const apply = () => {
+    const active = filter.querySelector("[data-property-filter].active")?.getAttribute("data-property-filter") || "all";
+    const query = (search?.value || "").trim().toLowerCase();
+    cards.forEach((card) => {
+      const status = card.getAttribute("data-status") || "";
+      const haystack = `${card.textContent || ""} ${card.getAttribute("data-city") || ""}`.toLowerCase();
+      const statusOk = active === "all" || status === active;
+      const queryOk = !query || haystack.includes(query);
+      card.hidden = !(statusOk && queryOk);
+    });
+  };
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((b) => b.classList.remove("active"));
+      button.classList.add("active");
+      apply();
+    });
+  });
+  search?.addEventListener("input", apply);
+});
