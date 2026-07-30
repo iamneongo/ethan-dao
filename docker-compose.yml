@@ -8,8 +8,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    ports:
-      - "${PORT:-8080}:80"
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-ethandao_wp}
