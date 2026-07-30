@@ -27,6 +27,12 @@ services:
       - -lc
       - |
         set -e
+        mkdir -p /var/www/html/wp-content/themes /var/www/html/wp-content/mu-plugins
+        rm -rf /var/www/html/wp-content/themes/ethan-dao-vanilla
+        cp -a /usr/src/wordpress/wp-content/themes/ethan-dao-vanilla /var/www/html/wp-content/themes/
+        cp -a /usr/src/wordpress/wp-content/mu-plugins/. /var/www/html/wp-content/mu-plugins/
+        chown -R www-data:www-data /var/www/html/wp-content/themes/ethan-dao-vanilla /var/www/html/wp-content/mu-plugins
+
         docker-entrypoint.sh apache2-foreground &
         apache_pid=$!
 
