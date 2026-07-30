@@ -1,53 +1,51 @@
 services:
-  app:
+  wordpress:
     build:
       context: .
       dockerfile: Dockerfile
-      target: runner
-    image: ai-website-cloner:latest
-    container_name: ai-website-cloner
+    image: ethan-dao-wordpress:latest
     restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
     ports:
-      - "${PORT:-3000}:3000"
+      - "${PORT:-8080}:80"
     environment:
-      - NODE_ENV=production
-      - NEXT_TELEMETRY_DISABLED=1
-    env_file:
-      - path: .env.local
-        required: false
-      - path: .env
-        required: false
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/ || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
-
-  dev:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    image: ai-website-cloner:dev
-    container_name: ai-website-cloner-dev
-    restart: unless-stopped
-    ports:
-      - "${DEV_PORT:-3001}:3000"
-    environment:
-      - NODE_ENV=development
-      - NEXT_TELEMETRY_DISABLED=1
-    env_file:
-      - path: .env.local
-        required: false
-      - path: .env
-        required: false
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-ethandao_wp}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-ethandao_wp}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-change-this-in-dokploy}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX:-wp_}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', getenv('WP_HOME') ?: 'https://ethan-dao.apps.neooi.com');
+        define('WP_SITEURL', getenv('WP_SITEURL') ?: 'https://ethan-dao.apps.neooi.com');
+        define('FS_METHOD', 'direct');
     volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
+      - wordpress_uploads:/var/www/html/wp-content/uploads
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/ || exit 1"]
+      test: ["CMD-SHELL", "curl -fsS http://localhost/wp-login.php >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
-      retries: 3
-      start_period: 15s
+      retries: 5
+      start_period: 60s
+
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${WORDPRESS_DB_NAME:-ethandao_wp}
+      MARIADB_USER: ${WORDPRESS_DB_USER:-ethandao_wp}
+      MARIADB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-change-this-in-dokploy}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-change-root-password-in-dokploy}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh --connect --innodb_initialized"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  mariadb_data:
+  wordpress_uploads:

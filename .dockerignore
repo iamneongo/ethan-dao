@@ -10,6 +10,18 @@ out
 build
 dist
 
+# Legacy Next/static sources are kept in Git but not needed for WordPress deploy
+src
+public
+static-vanilla
+package.json
+package-lock.json
+next.config.ts
+postcss.config.mjs
+tsconfig.json
+eslint.config.mjs
+components.json
+
 # Git
 .git
 .gitignore
