@@ -20,18 +20,15 @@ function ethan_smooth_page_transitions_assets(): void
       @media (prefers-reduced-motion: no-preference) {
         html.ethan-page-transition-ready body {
           opacity: 1;
-          transform: translateY(0);
-          transition: opacity 360ms cubic-bezier(.22,1,.36,1), transform 360ms cubic-bezier(.22,1,.36,1);
+          transition: opacity 360ms cubic-bezier(.22,1,.36,1);
         }
 
         html.ethan-page-entering body {
           opacity: 0;
-          transform: translateY(10px);
         }
 
         html.ethan-page-leaving body {
           opacity: 0;
-          transform: translateY(-8px);
           pointer-events: none;
         }
       }
