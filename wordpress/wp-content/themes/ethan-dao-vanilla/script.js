@@ -315,3 +315,41 @@ if (profileMapNode && window.L) {
     button.addEventListener("click", () => setProfileMapFilter(button.dataset.profileMapFilter || "all"));
   });
 }
+
+const alwayzzBanner = document.querySelector("[data-alwayzz-banner]");
+if (alwayzzBanner) {
+  const makeDecorativeLines = (selector, count, side) => {
+    const target = alwayzzBanner.querySelector(selector);
+    if (!target || target.childElementCount) return;
+    for (let i = 0; i < count; i += 1) {
+      const line = document.createElement("span");
+      line.className = "alwayzz-line";
+      const width = 60 + i * 10;
+      line.style.width = side === "top" ? `${Math.min(92, 28 + i * 3.2)}%` : `${width}px`;
+      line.style.animationDelay = `${i * 0.25}s`;
+      target.appendChild(line);
+    }
+  };
+
+  makeDecorativeLines(".alwayzz-lines-left", 20, "left");
+  makeDecorativeLines(".alwayzz-lines-right", 20, "right");
+  makeDecorativeLines(".alwayzz-lines-top", 20, "top");
+
+  const drawer = alwayzzBanner.querySelector("[data-alwayzz-drawer]");
+  const toggle = alwayzzBanner.querySelector("[data-alwayzz-menu-toggle]");
+  const closeButton = alwayzzBanner.querySelector("[data-alwayzz-menu-close]");
+  const setDrawer = (open) => {
+    if (!drawer || !toggle) return;
+    drawer.classList.toggle("is-open", open);
+    drawer.setAttribute("aria-hidden", open ? "false" : "true");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.documentElement.classList.toggle("alwayzz-menu-open", open);
+  };
+
+  toggle?.addEventListener("click", () => setDrawer(!drawer?.classList.contains("is-open")));
+  closeButton?.addEventListener("click", () => setDrawer(false));
+  drawer?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setDrawer(false)));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setDrawer(false);
+  });
+}

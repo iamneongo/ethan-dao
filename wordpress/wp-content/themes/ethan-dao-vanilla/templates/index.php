@@ -7,9 +7,9 @@
     <meta name="description" content="Ethan Dao is a Chuyên viên nổi bật Realtor helping buyers, sellers, and investors across Dallas-Fort Worth." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Great+Vibes&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?ver=1.0.3" />
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?ver=1.0.12" />
   <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>><?php wp_body_open(); ?>
@@ -28,16 +28,61 @@
       <symbol id="icon-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
       <symbol id="icon-zillow" viewBox="0 0 24 24"><path d="M12.006 0L1.086 8.627v3.868c3.386-2.013 11.219-5.13 14.763-6.015.11-.024.16.005.227.078.372.427 1.586 1.899 1.916 2.301a.128.128 0 0 1-.03.195 43.607 43.607 0 0 0-6.67 6.527c-.03.037-.006.043.012.03 2.642-1.134 8.828-2.94 11.622-3.452V8.627zm-.48 11.177c-2.136.708-8.195 3.307-10.452 4.576V24h21.852v-7.936c-2.99.506-11.902 3.16-15.959 5.246a.183.183 0 0 1-.23-.036l-2.044-2.429c-.055-.061-.062-.098.011-.208 1.574-2.3 4.789-5.899 6.833-7.418.042-.03.031-.06-.012-.042Z"/></symbol>
     </svg>
-    <header class="navbar" data-navbar>
+    <header class="navbar banner-header" data-navbar>
       <div class="nav-inner">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="wordmark"><span>ETHAN DAO</span><small>REALTOR</small></a>
-        <?php echo ethan_dao_vanilla_render_primary_nav(); ?><button class="menu-button" data-open-menu aria-label="Open menu"><svg><use href="#icon-menu"/></svg></button>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="wordmark banner-wordmark"><span>Ethan Dao</span><sup>®</sup><small>Realtor</small></a>
+                <?php echo ethan_dao_vanilla_render_primary_nav(); ?>
+        <button class="menu-button banner-menu-button" data-open-menu aria-label="Open menu">
+          <span>Menu</span>
+          <svg><use href="#icon-chevron-up"/></svg>
+        </button>
       </div>
     </header>
     <div class="menu-overlay" data-menu-overlay></div>
     <?php echo ethan_dao_vanilla_render_drawer_nav(); ?>
     <main>
-      <section id="top" class="hero">
+      <section id="top" class="alwayzz-banner ethan-minimal-banner" data-alwayzz-banner aria-label="Ethan Dao real estate banner">
+        <div class="alwayzz-bg" aria-hidden="true"></div>
+        <div class="alwayzz-lines alwayzz-lines-left" aria-hidden="true"></div>
+        <div class="alwayzz-lines alwayzz-lines-right" aria-hidden="true"></div>
+        <div class="alwayzz-lines alwayzz-lines-top" aria-hidden="true"></div>
+
+        <div class="alwayzz-shell">
+
+          <div class="alwayzz-content">
+            <div class="alwayzz-ticker" aria-label="Ethan Dao services">
+              <div class="alwayzz-marquee">
+                <span>Mua nhà DFW</span><span>Bán nhà có chiến lược</span><span>Định giá nhà</span><span>New-build communities</span><span>Đầu tư bất động sản</span>
+                <span>Mua nhà DFW</span><span>Bán nhà có chiến lược</span><span>Định giá nhà</span><span>New-build communities</span><span>Đầu tư bất động sản</span>
+                <span>Mua nhà DFW</span><span>Bán nhà có chiến lược</span><span>Định giá nhà</span><span>New-build communities</span><span>Đầu tư bất động sản</span>
+                <span>Mua nhà DFW</span><span>Bán nhà có chiến lược</span><span>Định giá nhà</span><span>New-build communities</span><span>Đầu tư bất động sản</span>
+              </div>
+            </div>
+            <h2>Real estate guidance <span>alwayzz</span> with Ethan.</h2>
+            <p>Tư vấn mua bán nhà tại Dallas-Fort Worth bằng chiến lược rõ ràng, dữ liệu thực tế và dịch vụ song ngữ Việt-Anh từ lần xem nhà đầu tiên đến ngày closing.</p>
+            <div class="alwayzz-actions">
+              <a class="alwayzz-primary" href="<?php echo esc_url(home_url('/buyer-guide/')); ?>">Xem hướng dẫn mua nhà</a>
+              <a class="alwayzz-book" href="tel:+14699895786">
+                <span><strong>Gọi Ethan ngay</strong><small><i></i>(469) 989-5786</small></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="alwayzz-trusted" aria-label="Ethan Dao affiliations and platforms">
+            <p>Đồng hành cùng khách hàng mua, bán và đầu tư tại DFW</p>
+            <div class="alwayzz-brand-marquee">
+              <div>
+                <span class="linear">eXp Realty</span><span class="shopify">Texas Ace Team</span><span class="notion">Zillow</span><span class="webflow">YouTube</span><span class="figma">Facebook</span><span class="slack">Instagram</span><span class="stripe">TikTok</span><span class="framer">DFW Metroplex</span>
+                <span class="linear">eXp Realty</span><span class="shopify">Texas Ace Team</span><span class="notion">Zillow</span><span class="webflow">YouTube</span><span class="figma">Facebook</span><span class="slack">Instagram</span><span class="stripe">TikTok</span><span class="framer">DFW Metroplex</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alwayzz-blur" aria-hidden="true"></div>
+      </section>
+
+      <section id="legacy-hero" class="hero">
         <div class="hero-visual" data-parallax-image>
           <div class="hero-glow"></div>
           <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-cutout.png" alt="Ethan Dao, Realtor with eXp Realty, in a dark suit" />
@@ -236,7 +281,7 @@
     </main>
     <footer class="footer">
       <div class="container">
-        <div class="footer-logo"><svg viewBox="0 0 200 200"><rect x="8" y="8" width="184" height="184" rx="16" fill="none" stroke="#f7bf0d" stroke-width="6"/><text x="100" y="100" dominant-baseline="central" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif" font-weight="700" font-size="96" letter-spacing="-4" fill="#f7bf0d">ED</text></svg><span><strong>ETHAN DAO</strong><small>REALTOR</small></span></div>
+        <div class="footer-logo"><svg viewBox="0 0 200 200"><rect x="8" y="8" width="184" height="184" rx="16" fill="none" stroke="#0a0a0a" stroke-width="6"/><text x="100" y="100" dominant-baseline="central" text-anchor="middle" font-family="Google Sans Flex, sans-serif" font-weight="700" font-size="96" letter-spacing="-4" fill="#0a0a0a">ED</text></svg><span><strong>ETHAN DAO</strong><small>REALTOR</small></span></div>
         <div class="footer-cols"><div><h3>Ethan Dao</h3><a href="tel:+14699895786">(469) 989-5786</a><a href="mailto:ethandao.realtor@gmail.com">ethandao.realtor@gmail.com</a></div><div><h3>Brokerage</h3><p>eXp Realty - Texas Ace Team</p><p>Serving the Dallas-Fort Worth Metroplex, TX</p></div><div><h3>Search</h3><p><a href="<?php echo esc_url(home_url('/browse-properties/')); ?>">Browse properties</a></p><p><a href="<?php echo esc_url(home_url('/home-valuation/')); ?>">Home valuation</a></p></div><div><h3>Connect</h3><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Schedule a consultation</a></p><p><a href="<?php echo esc_url(home_url('/agent-collaborations/')); ?>">Hợp tác đại lýs</a></p></div></div>
         <?php echo ethan_dao_vanilla_render_footer_nav(); ?>
         <p class="disclaimer">Ethan Dao (Tung Dao) is a licensed real estate agent in the State of Texas, affiliated with eXp Realty, LLC and the Texas Ace Team. Listing and sales information is intended solely for personal, non-commercial use to identify properties of interest. While generally considered reliable, this data is not guaranteed accurate; buyers are responsible for verifying all information independently. Equal Housing Opportunity.</p>
@@ -246,7 +291,7 @@
     </footer>
     <div class="floating-social"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/script.js?ver=1.0.2"></script>
+    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/script.js?ver=1.0.3"></script>
   <?php wp_footer(); ?>
   </body>
 </html>
