@@ -1,16 +1,17 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sell with Ethan Dao | DFW Real Estate</title>
+    <title>Bán nhà cùng Ethan Dao | DFW Real Estate</title>
     <meta name="description" content="Sell a Dallas-Fort Worth home with pricing, preparation, and video-first marketing strategy." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Great+Vibes&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?ver=1.0.12" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Dancing+Script:wght@700&family=Pattaya&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?ver=1785803813453" />
   <?php wp_head(); ?>
-  </head>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
   <body <?php body_class(); ?>><?php wp_body_open(); ?>
     <svg class="svg-sprite" aria-hidden="true">
       <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
@@ -33,30 +34,264 @@
                 <?php echo ethan_dao_vanilla_render_primary_nav(); ?>
         <button class="menu-button banner-menu-button" data-open-menu aria-label="Open menu">
           <span>Menu</span>
-          <svg><use href="#icon-chevron-up"/></svg>
+          <svg><use href="#icon-menu"/></svg>
         </button>
       </div>
     </header>
     <div class="menu-overlay" data-menu-overlay></div>
     <?php echo ethan_dao_vanilla_render_drawer_nav(); ?>
-    <main class="subpage-main"><section class="subpage-hero"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg" alt="Sell With Strategy" /><div></div><div class="subpage-hero-inner reveal"><span class="h-kicker light">Cho người bán</span><h1>Sell With Strategy</h1><p>Ethan kết hợp chiến lược định giá kỷ luật với hệ thống video marketing để đưa nhà của bạn đến nhóm người mua DFW có nhu cầu thật.</p></div></section>
-<section class="verified-strip"><div class="container"><span>Zillow verified profile data</span><strong>38 total sales</strong><strong>15 sales last 12 months</strong><strong>$368K average price</strong><strong>$188K-$529K price range</strong><strong>Service areas: Dallas, Fort Worth, Arlington</strong></div></section>
-<section class="page-section"><div class="content-split"><div class="split-media reveal"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg" alt="DFW home exterior" /></div><div class="reveal"><span class="h-kicker">Chiến lược người bán</span><h2 class="h-section-title">Chuẩn bị, định giá, quảng bá</h2><p>Một listing mạnh được chuẩn bị trước khi lên thị trường. Ethan giúp tập trung vào những điểm người mua cảm nhận rõ và những yếu tố tăng sức mạnh đàm phán.</p><div class="button-row"><a class="btn-ink" href="<?php echo esc_url(home_url('/seller-guide/')); ?>">Đọc hướng dẫn</a><a class="btn-outline-dark" href="<?php echo esc_url(home_url('/selling-consultation/')); ?>">Đặt lịch tư vấn</a></div></div></div></section><section class="page-section dark"><div class="container"><h2 class="h-section-title reveal">Lộ trình người bán</h2><div class="process-timeline"><article class="reveal"><span>01</span><h3>Mục tiêu người bán</h3><p>Thống nhất thời điểm bán, mục tiêu lợi nhuận ròng, mức sửa chữa phù hợp và kế hoạch cho căn nhà tiếp theo.</p></article><article class="reveal"><span>02</span><h3>Khảo sát nhà</h3><p>Xác định các điểm dễ cải thiện, rủi ro khi showing và nâng cấp ảnh hưởng đến cảm nhận của người mua.</p></article><article class="reveal"><span>03</span><h3>Phân tích thị trường</h3><p>Dựa trên giao dịch gần nhà, cạnh tranh hiện tại, nhu cầu người mua và đà tăng trưởng khu vực để định giá có chiến lược.</p></article><article class="reveal"><span>04</span><h3>Kế hoạch chuẩn bị</h3><p>Phối hợp dọn dẹp, định hướng staging, chuẩn bị chụp ảnh và danh sách việc cần làm trước khi lên listing.</p></article><article class="reveal"><span>05</span><h3>Ra mắt bằng video</h3><p>Xây dựng nội dung nhà bán cho YouTube, Facebook, Instagram và TikTok.</p></article><article class="reveal"><span>06</span><h3>MLS và phân phối listing</h3><p>Ra mắt listing với nội dung chỉn chu, thông tin chính xác, hình ảnh/video mạnh và độ phủ tốt đến người mua.</p></article><article class="reveal"><span>07</span><h3>Showing và phản hồi</h3><p>Theo dõi phản hồi người mua, hiệu quả open house và góp ý từ agent để điều chỉnh nhanh.</p></article><article class="reveal"><span>08</span><h3>Đánh giá offer</h3><p>So sánh giá, điều khoản, tài chính, rủi ro appraisal, contingency và độ chắc chắn khi closing.</p></article><article class="reveal"><span>09</span><h3>Quản lý escrow</h3><p>Theo sát inspection, appraisal, title, lender và các mốc closing để giao dịch đi đúng tiến độ.</p></article><article class="reveal"><span>10</span><h3>Closing thành công</h3><p>Chuẩn bị các chi tiết cuối cùng để quá trình chuyển giao gọn gàng, bình tĩnh và trọn vẹn.</p></article></div></div></section><section class="newsletter"><div class="newsletter-inner reveal"><h2 class="h-section-title">Kinh nghiệm gặp gỡ sự tận tâm</h2><p>Nhận cập nhật thị trường DFW, nhà mới xây, ưu đãi builder và video mới từ Ethan Dao - Mua Bán Nhà Dallas Texas.</p><form data-static-form><input type="text" placeholder="HỌ TÊN" /><input type="email" placeholder="EMAIL" /><button class="btn-gold">Gửi thông tin</button><p class="form-success" hidden>Cảm ơn bạn. Đội ngũ của Ethan sẽ liên hệ sớm.</p></form><label><input type="checkbox" /> <span>Tôi đồng ý để Ethan Dao liên hệ qua điện thoại, email và tin nhắn về dịch vụ bất động sản. Có thể phát sinh phí tin nhắn và dữ liệu. <a href="<?php echo esc_url(home_url('/contact/')); ?>">Chính sách bảo mật</a>.</span></label></div></section><section id="work" class="work"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg" alt="Dallas-Fort Worth home exterior" /><div></div><div class="work-inner reveal"><span class="h-kicker light">Cùng bắt đầu</span><h2 class="h-section-title">Làm việc cùng Ethan</h2><p>Sẵn sàng mua bán nhà tại Dallas-Fort Worth? Dù mua, bán, chuyển đến DFW hay đầu tư, Ethan Dao mang đến tư vấn rõ ràng, hỗ trợ song ngữ Việt-Anh và chiến lược thực tế từ cuộc gọi đầu tiên đến ngày closing.</p><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn-gold">Kết nối ngay</a></div></section></main>
+    <main class="subpage-main">
+
+  
+  <section class="page-section">
+    <div class="about-grid">
+      <div class="portrait reveal">
+        <span></span>
+        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-headshot.jpg?v=1.0.58" alt="Ethan Dao Realtor" />
+      </div>
+      <div class="reveal">
+        <span class="h-kicker">Giới thiệu</span>
+        <h2 class="h-section-title">Ethan Dao — <span>Realtor DFW</span></h2>
+        <p>Tôi tên Ethan — Tùng Đào. Tôi là Realtor tại Dallas-Fort Worth, làm việc hoàn toàn bằng tiếng Việt để giúp gia đình người Việt bán nhà đúng giá, đúng thời điểm.</p>
+        <p>Hoạt động chủ yếu ở Lavon, McKinney, Garland — thuộc eXp Realty và Texas Ace Team.</p>
+        <div class="button-row" style="margin-top: 24px;">
+          <a class="btn-ink" href="<?php echo esc_url(home_url('/contact/')); ?>">Liên hệ Ethan</a>
+          <a class="btn-outline-dark" href="<?php echo esc_url(home_url('/past-transactions/')); ?>">Xem giao dịch đã bán</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section dark">
+    <div class="container">
+      <h2 class="h-section-title reveal">Lộ trình <span>người bán</span></h2>
+      <div class="process-timeline">
+        <article class="reveal"><span>01</span><h3>Lorem ipsum dolor</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p></article>
+        <article class="reveal"><span>02</span><h3>Ut enim ad minim</h3><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></article>
+        <article class="reveal"><span>03</span><h3>Duis aute irure dolor</h3><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p></article>
+        <article class="reveal"><span>04</span><h3>Excepteur sint occaecat</h3><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></article>
+        <article class="reveal"><span>05</span><h3>Sed ut perspiciatis</h3><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem.</p></article>
+        <article class="reveal"><span>06</span><h3>Nemo enim ipsam</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p></article>
+        <article class="reveal"><span>07</span><h3>Neque porro quisquam</h3><p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non.</p></article>
+        <article class="reveal"><span>08</span><h3>Ut labore et dolore</h3><p>Ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem.</p></article>
+        <article class="reveal"><span>09</span><h3>Quis autem vel eum</h3><p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</p></article>
+        <article class="reveal"><span>10</span><h3>At vero eos et accusamus</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" style="background:#f8f6f1">
+    <div class="container center">
+      <span class="h-kicker">Chiến lược</span>
+      <h2 class="h-section-title" style="margin-bottom: 48px;">Cam kết của <span>tôi</span></h2>
+      <style>
+        .line-separated-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0;
+          border-top: 1px solid var(--color-line);
+          border-bottom: 1px solid var(--color-line);
+        }
+        .line-separated-grid > div {
+          border-right: 1px solid var(--color-line);
+        }
+        .line-separated-grid > div:last-child {
+          border-right: none;
+        }
+        .line-separated-grid .commitment-number {
+          font-family: var(--font-script);
+          font-size: 64px;
+          line-height: 1;
+          font-weight: 400;
+          color: var(--gold-dark);
+          letter-spacing: .02em;
+          text-shadow: 0 1px 0 rgba(255,255,255,.6);
+        }
+        @media (max-width: 900px) {
+          .line-separated-grid {
+            grid-template-columns: 1fr;
+          }
+          .line-separated-grid > div {
+            border-right: none;
+            border-bottom: 1px solid var(--color-line);
+          }
+          .line-separated-grid > div:last-child {
+            border-bottom: none;
+          }
+          .line-separated-grid .commitment-number {
+            font-size: 52px;
+          }
+        }
+      </style>
+      <div class="line-separated-grid" style="text-align: left; margin-top: 48px;">
+        <div class="reveal" style="padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+          <span class="commitment-number">01</span>
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 24px; color: var(--ink-strong); margin-bottom: 12px; font-weight: 600;">Lorem ipsum dolor sit</h3>
+            <p style="color: var(--color-muted); font-size: 16px; line-height: 1.6; margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</p>
+          </div>
+        </div>
+        <div class="reveal" style="padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+          <span class="commitment-number">02</span>
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 24px; color: var(--ink-strong); margin-bottom: 12px; font-weight: 600;">Ut enim ad minim veniam</h3>
+            <p style="color: var(--color-muted); font-size: 16px; line-height: 1.6; margin: 0;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.</p>
+          </div>
+        </div>
+        <div class="reveal" style="padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+          <span class="commitment-number">03</span>
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 24px; color: var(--ink-strong); margin-bottom: 12px; font-weight: 600;">Excepteur sint occaecat</h3>
+            <p style="color: var(--color-muted); font-size: 16px; line-height: 1.6; margin: 0;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed perspiciatis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="subpage-quote-band">
+    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg?v=1.0.58" alt="Bất động sản DFW" />
+    <div class="overlay"></div>
+    
+  </section>
+
+
+  <section class="page-section" style="background: #f8f6f1;">
+    <div class="container">
+      <span class="h-kicker reveal">Khách hàng nói gì</span>
+      <h2 class="h-section-title reveal">Cảm nhận từ <span>người bán nhà</span></h2>
+      <div class="testimonial-mini">
+        <article class="reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Chiến lược bán nhà rất rõ ràng, có tổ chức và tập trung đúng nhóm người mua. Nhà bán nhanh hơn dự kiến."</p>
+          <strong>Chị Trang Phạm</strong>
+          <small>Bán nhà tại Garland, 2024</small>
+        </article>
+        <article class="reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Video tour của Ethan thu hút rất nhiều lượt xem. Chúng tôi nhận được 3 offer chỉ sau 5 ngày listing."</p>
+          <strong>Anh Hùng & chị Mai</strong>
+          <small>Bán nhà tại McKinney, 2025</small>
+        </article>
+        <article class="reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Phản hồi nhanh, trung thực và bình tĩnh khi đàm phán. Chúng tôi luôn biết bước tiếp theo là gì."</p>
+          <strong>Gia đình Lê</strong>
+          <small>Bán nhà tại Wylie, 2025</small>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <span class="h-kicker reveal">Thành tích gần đây</span>
+      <h2 class="h-section-title reveal">Giao dịch <span>hoàn tất</span></h2>
+      <div class="flickity-carousel sales-track" data-flickity-carousel>
+        <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-garland.jpg?v=1.0.58" alt="" /><span>Đã bán</span><div><h3>2610 Dodson St, Garland, TX 75042</h3><p>2 Phòng ngủ &middot; 3 Phòng tắm &middot; 1,542 Sq.Ft. &middot; Seller</p></div></article>
+        <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-8.jpg?v=1.0.58" alt="" /><span>Đã bán</span><div><h3>5816 Mandarin Ln, Sachse, TX 75048</h3><p>4 Phòng ngủ &middot; 2 Phòng tắm &middot; 2,081 Sq.Ft. &middot; Buyer</p></div></article>
+        <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-arlington.jpg?v=1.0.58" alt="" /><span>Đã bán</span><div><h3>1729 Duster Cir, Arlington, TX 76018</h3><p>3 Phòng ngủ &middot; 2 Phòng tắm &middot; 1,457 Sq.Ft. &middot; Buyer</p></div></article>
+        <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-lavon.jpg?v=1.0.58" alt="" /><span>Đã bán</span><div><h3>697 Poppy Ln, Lavon, TX 75166</h3><p>4 Phòng ngủ &middot; 2 Phòng tắm &middot; 1,791 Sq.Ft. &middot; Buyer</p></div></article>
+        <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-mckinney-tidal.jpg?v=1.0.58" alt="" /><span>Đã bán</span><div><h3>604 Tidal Dr, McKinney, TX 75071</h3><p>4 Phòng ngủ &middot; 3 Phòng tắm &middot; 2,059 Sq.Ft. &middot; Buyer</p></div></article>
+      </div>
+      <div class="carousel-actions"><div><button class="flkty-btn-prev" aria-label="Previous"><svg><use href="#icon-chevron-left"/></svg></button><button class="flkty-btn-next" aria-label="Next"><svg><use href="#icon-chevron-right"/></svg></button></div></div>
+    </div>
+  </section>
+
+  <section class="page-section dark">
+    <div class="container">
+      <span class="h-kicker light reveal">Xem thực tế</span>
+      <h2 class="h-section-title reveal">Video <span>listing thực tế</span></h2>
+      <p class="reveal" style="max-width: 620px; margin: 0 auto 40px; text-align: center; color: rgba(255,255,255,.65); font-size: 16px; line-height: 1.6;">Đây là video tôi quay để bán nhà cho khách — bạn có thể xem để biết nhà của mình sẽ được giới thiệu thế nào.</p>
+      <div class="video-grid">
+        <article class="reveal">
+          <h3>LAVON TEXAS - Lakepointe review 4 mẫu nhà new build</h3>
+          <p>4 mẫu nhà mới ở Lavon, $300K–$400K. Tôi xem và nói thật cái nào đáng tiền, cái nào không.</p>
+          <div style="aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; background: #000;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/qsBWEIueBUs?rel=0" title="Lavon 75166" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border:0;"></iframe>
+          </div>
+        </article>
+        <article class="reveal">
+          <h3>Lavon 75166 | khu nhà mới cách Garland khu người Việt</h3>
+          <p>Cách Garland khoảng 30 phút, giá từ $300K với nhiều ưu đãi từ builder. Nhà mới trong khu Lavon 75166.</p>
+          <div style="aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; background: #000;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/PH7ssSv_eoI?rel=0" title="Home Tour Lavon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border:0;"></iframe>
+          </div>
+        </article>
+        <article class="reveal">
+          <h3>Wylie 75098 | căn nhà đời 2017 tại Inspiration Community</h3>
+          <p>Nhà 2017, hai mặt tiền trong khu Inspiration Community. Wylie 75098, trường tốt và cộng đồng yên tĩnh.</p>
+          <div style="aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; background: #000;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uxfLLkoGMiE?rel=0" title="Wylie 75098" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border:0;"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <span class="h-kicker reveal">Giải đáp thắc mắc</span>
+      <h2 class="h-section-title reveal">Câu hỏi <span>thường gặp</span></h2>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <div class="faq-q">Nhà tôi hiện tại giá bao nhiêu?</div>
+          <div class="faq-a"><p>Nhắn tôi địa chỉ là được. Tôi kéo dữ liệu những căn đã bán gần đó và cho bạn con số thực tế — không phải con số để bạn vui, mà để bạn quyết định được.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Tôi có cần sửa chữa nhà trước khi bán không?</div>
+          <div class="faq-a"><p>Không cần sửa hết. Tôi xem nhà và nói thẳng: cái này đáng làm, cái kia bỏ qua. Thường thì sơn lại và dọn sân vườn là đủ để ảnh đẹp hơn rõ rệt.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Bán nhà mất bao lâu?</div>
+          <div class="faq-a"><p>Ở DFW trung bình 20–45 ngày. Tôi đăng Zillow, quay video tour, gửi email cho danh sách khách đang tìm nhà — mấy căn gần đây nhận offer trong vòng 1 tuần.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Chi phí bán nhà gồm những gì?</div>
+          <div class="faq-a"><p>Chủ yếu là hoa hồng môi giới, thuế, và chi phí title/escrow. Tôi sẽ tính cho bạn một tờ net sheet — bạn biết chính xác mình nhận được bao nhiêu sau khi bán, trước khi ký bất cứ thứ gì.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Tôi có thể vừa bán nhà cũ vừa mua nhà mới không?</div>
+          <div class="faq-a"><p>Được, tôi hay làm cái này. Quan trọng là kéo giãn đúng timeline để bạn không phải trả tiền thuê nhà tạm trong khoảng giữa. Tôi sẽ điều phối cả hai phía.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="newsletter-inner reveal">
+      <h2 class="h-section-title">Bạn đã sẵn sàng <span>để bán nhà?</span></h2>
+      <p>Nhắn tin địa chỉ nhà, tôi sẽ gửi ngay báo cáo giá thị trường.</p>
+      <div class="button-row" style="justify-content: center; margin-top: 36px;">
+        <a class="btn-ink" href="<?php echo esc_url(home_url('/contact/')); ?>">Đặt lịch tư vấn miễn phí</a>
+        <a class="btn-outline-dark" href="tel:+14699895786">Gọi ngay (469) 989-5786</a>
+      </div>
+    </div>
+  </section>
+</main>
     <footer class="footer">
       <div class="container">
-        <div class="footer-logo"><svg viewBox="0 0 200 200"><rect x="8" y="8" width="184" height="184" rx="16" fill="none" stroke="#0a0a0a" stroke-width="6"/><text x="100" y="100" dominant-baseline="central" text-anchor="middle" font-family="Google Sans Flex, sans-serif" font-weight="700" font-size="96" letter-spacing="-4" fill="#0a0a0a">ED</text></svg><span><strong>ETHAN DAO</strong><small>REALTOR</small></span></div>
-        <div class="footer-cols"><div><h3>Ethan Dao</h3><a href="tel:+14699895786">(469) 989-5786</a><a href="mailto:ethandaorealtor@gmail.com">ethandaorealtor@gmail.com</a></div><div><h3>Brokerage</h3><p>eXp Realty - Texas Ace Team</p><p>1431 Greenway Drive, Irving, TX 75038</p></div><div><h3>Search</h3><p><a href="<?php echo esc_url(home_url('/browse-properties/')); ?>">Browse properties</a></p><p><a href="<?php echo esc_url(home_url('/home-valuation/')); ?>">Home valuation</a></p></div><div><h3>Connect</h3><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Schedule a consultation</a></p><p><a href="<?php echo esc_url(home_url('/agent-collaborations/')); ?>">Hợp tác đại lýs</a></p></div></div>
+        <div class="footer-logo" style="gap:0"><a href="<?php echo esc_url(home_url('/')); ?>" class="wordmark banner-wordmark" style="color:var(--ink-strong);text-decoration:none;"><span>Ethan Dao</span><sup>®</sup></a></div>
+        <div class="footer-cols"><div><h3>Ethan Dao</h3><a href="tel:+14699895786">(469) 989-5786</a><a href="mailto:ethandaorealtor@gmail.com">ethandaorealtor@gmail.com</a></div><div><h3>Môi giới</h3><p>eXp Realty - Texas Ace Team</p><p>1431 Greenway Drive, Irving, TX 75038</p></div><div><h3>Tìm kiếm</h3><p><a href="<?php echo esc_url(home_url('/properties/')); ?>">Tìm nhà</a></p><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Định giá nhà</a></p></div><div><h3>Liên hệ</h3><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Đặt lịch tư vấn</a></p><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Hợp tác đại lý</a></p></div></div>
         <?php echo ethan_dao_vanilla_render_footer_nav(); ?>
         <p class="disclaimer">Ethan Dao (Tung Dao) is a licensed real estate agent in the State of Texas, affiliated with eXp Realty, LLC and the Texas Ace Team. Listing and sales information is intended solely for personal, non-commercial use to identify properties of interest. While generally considered reliable, this data is not guaranteed accurate; buyers are responsible for verifying all information independently. Equal Housing Opportunity.</p>
-        <p class="copyright">Â©2026 NTREIS. Tất cả rights reserved.</p>
+        <p class="copyright">©2026 NTREIS. All rights reserved.</p>
       </div>
-      <div class="bottom-bar"><span>ETHAN DAO - REALTORÂ®</span><span>eXp Realty - Texas Ace Team - Dallas-Fort Worth, TX</span><span>Copyright Â© 2026 | <a href="<?php echo esc_url(home_url('/contact/')); ?>">Chính sách bảo mật</a></span></div>
+      <div class="bottom-bar"><span>ETHAN DAO - REALTOR®</span><span>eXp Realty - Texas Ace Team - Dallas-Fort Worth, TX</span><span>Copyright © 2026 | <a href="<?php echo esc_url(home_url('/contact/')); ?>">Chính sách bảo mật</a></span></div>
     </footer>
-    <div class="floating-social"></div>
-    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/script.js?ver=1.0.2"></script>
+    <div class="floating-social">
+      <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/default.svg" alt="Facebook" width="22" height="22" /></a>
+      <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/youtube/default.svg" alt="YouTube" width="22" height="22" /></a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/default.svg" alt="Instagram" width="22" height="22" /></a>
+      <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tiktok/default.svg" alt="TikTok" width="22" height="22" /></a>
+      <a href="https://zillow.com/" target="_blank" rel="noopener" aria-label="Zillow"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/zillow/default.svg" alt="Zillow" width="22" height="22" /></a>
+    </div>
+    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/script.js?ver=1.0.58"></script>
   <?php wp_footer(); ?>
   </body>
 </html>
+
+
 
 
 

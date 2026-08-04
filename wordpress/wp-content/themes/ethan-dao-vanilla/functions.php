@@ -7,13 +7,19 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+require_once get_template_directory() . '/inc/properties.php';
+
+if (is_admin()) {
+    require_once get_template_directory() . '/inc/zillow-import-tool.php';
+}
+
 function ethan_dao_vanilla_static_pages(): array
 {
     return [
         'about' => 'about.php',
         'agent-collaborations' => 'agent-collaborations.php',
         'blog' => 'blog.php',
-        'browse-properties' => 'browse-properties.php',
+        'browse-properties' => 'properties.php',
         'buy' => 'buy.php',
         'buyer-guide' => 'buyer-guide.php',
         'buyer-information' => 'buyer-information.php',
@@ -28,6 +34,7 @@ function ethan_dao_vanilla_static_pages(): array
         'neighborhoods' => 'neighborhoods.php',
         'past-transactions' => 'past-transactions.php',
         'properties' => 'properties.php',
+        'property-details' => 'property-details.php',
         'sell' => 'sell.php',
         'seller-guide' => 'seller-guide.php',
         'selling-consultation' => 'selling-consultation.php',
@@ -39,6 +46,7 @@ function ethan_dao_vanilla_static_pages(): array
 function ethan_dao_vanilla_query_vars(array $vars): array
 {
     $vars[] = 'ethan_static_page';
+    $vars[] = 'ethan_property_id';
     return $vars;
 }
 add_filter('query_vars', 'ethan_dao_vanilla_query_vars');
@@ -51,11 +59,21 @@ function ethan_dao_vanilla_rewrite_rules(): void
         }
         add_rewrite_rule('^' . preg_quote($slug, '/') . '/?$', 'index.php?ethan_static_page=' . $slug, 'top');
     }
+
+    add_rewrite_rule('^property/([0-9]+)/?$', 'index.php?ethan_property_id=$matches[1]', 'top');
 }
 add_action('init', 'ethan_dao_vanilla_rewrite_rules');
 
 function ethan_dao_vanilla_template_include(string $template): string
 {
+    $property_id = (int) get_query_var('ethan_property_id');
+    if ($property_id > 0 && get_post_type($property_id) === 'property') {
+        $candidate = get_template_directory() . '/templates/property-details.php';
+        if (file_exists($candidate)) {
+            return $candidate;
+        }
+    }
+
     $slug = get_query_var('ethan_static_page');
     if (empty($slug) && (is_front_page() || is_home())) {
         $slug = 'index';
@@ -99,28 +117,28 @@ add_action('after_setup_theme', 'ethan_dao_vanilla_register_menu_locations');
 function ethan_dao_vanilla_page_titles(): array
 {
     return [
-        'buy' => 'Mua NhÃ ',
-        'buyer-guide' => 'HÆ°á»›ng Dáº«n Mua NhÃ ',
-        'buyer-information' => 'ThÃ´ng Tin NgÆ°á»i Mua',
-        'browse-properties' => 'Xem NhÃ ',
-        'sell' => 'BÃ¡n NhÃ ',
-        'seller-guide' => 'HÆ°á»›ng Dáº«n BÃ¡n NhÃ ',
-        'selling-consultation' => 'TÆ° Váº¥n BÃ¡n NhÃ ',
-        'home-valuation' => 'Äá»‹nh GiÃ¡ NhÃ ',
-        'past-transactions' => 'NhÃ  ÄÃ£ BÃ¡n Gáº§n ÄÃ¢y',
-        'properties' => 'Báº¥t Äá»™ng Sáº£n',
-        'featured-properties' => 'NhÃ  Ná»•i Báº­t',
-        'neighborhoods' => 'Khu Vá»±c',
+        'buy' => 'Mua nhÃ ',
+        'buyer-guide' => 'HÆ°á»›ng dáº«n mua nhÃ ',
+        'buyer-information' => 'ThÃ´ng tin ngÆ°á»i mua',
+        'browse-properties' => 'Xem nhÃ ',
+        'sell' => 'BÃ¡n nhÃ ',
+        'seller-guide' => 'HÆ°á»›ng dáº«n bÃ¡n nhÃ ',
+        'selling-consultation' => 'TÆ° váº¥n bÃ¡n nhÃ ',
+        'home-valuation' => 'Äá»‹nh giÃ¡ nhÃ ',
+        'past-transactions' => 'NhÃ  Ä‘Ã£ bÃ¡n gáº§n Ä‘Ã¢y',
+        'properties' => 'Báº¥t Ä‘á»™ng sáº£n',
+        'featured-properties' => 'NhÃ  ná»•i báº­t',
+        'neighborhoods' => 'Khu vá»±c',
         'mckinney' => 'McKinney',
         'lavon' => 'Lavon',
         'garland' => 'Garland',
         'about' => 'Vá» Ethan',
-        'testimonials' => 'Cáº£m Nháº­n KhÃ¡ch HÃ ng',
-        'services' => 'Dá»‹ch Vá»¥',
-        'blog' => 'BÃ i Viáº¿t',
-        'contact' => 'LiÃªn Há»‡',
-        'join-team' => 'Gia Nháº­p Äá»™i NgÅ©',
-        'agent-collaborations' => 'Há»£p TÃ¡c Äáº¡i LÃ½',
+        'testimonials' => 'Cáº£m nháº­n khÃ¡ch hÃ ng',
+        'services' => 'Dá»‹ch vá»¥',
+        'blog' => 'BÃ i viáº¿t',
+        'contact' => 'LiÃªn há»‡',
+        'join-team' => 'Gia nháº­p Ä‘á»™i ngÅ©',
+        'agent-collaborations' => 'Há»£p tÃ¡c Ä‘áº¡i lÃ½',
     ];
 }
 
@@ -128,34 +146,27 @@ function ethan_dao_vanilla_menu_blueprints(): array
 {
     return [
         'primary' => [
-            ['slug' => 'buy', 'title' => 'MUA NHÃ€', 'children' => ['buy', 'buyer-guide', 'buyer-information', 'browse-properties', 'mckinney', 'lavon', 'garland', 'neighborhoods']],
-            ['slug' => 'sell', 'title' => 'BÃN NHÃ€', 'children' => ['sell', 'seller-guide', 'selling-consultation', 'home-valuation', 'past-transactions']],
-            ['slug' => 'properties', 'title' => 'Báº¤T Äá»˜NG Sáº¢N', 'children' => ['properties', 'featured-properties', 'browse-properties', 'past-transactions', 'neighborhoods']],
-            ['slug' => 'about', 'title' => 'GIá»šI THIá»†U', 'children' => ['about', 'testimonials', 'services', 'blog']],
-            ['slug' => 'contact', 'title' => 'LIÃŠN Há»†', 'children' => ['contact', 'join-team', 'agent-collaborations']],
+            ['slug' => 'buy', 'title' => 'Mua nhÃ '],
+            ['slug' => 'sell', 'title' => 'BÃ¡n nhÃ '],
+            ['slug' => 'properties', 'title' => 'Báº¥t Ä‘á»™ng sáº£n'],
+            ['slug' => 'about', 'title' => 'Giá»›i thiá»‡u'],
+            ['slug' => 'contact', 'title' => 'LiÃªn há»‡'],
         ],
         'drawer' => [
-            ['slug' => 'home', 'title' => 'TRANG CHá»¦'],
-            ['slug' => 'buy', 'title' => 'MUA NHÃ€'],
-            ['slug' => 'sell', 'title' => 'BÃN NHÃ€'],
-            ['slug' => 'properties', 'title' => 'Báº¤T Äá»˜NG Sáº¢N'],
-            ['slug' => 'about', 'title' => 'Vá»€ ETHAN'],
-            ['slug' => 'testimonials', 'title' => 'Cáº¢M NHáº¬N KHÃCH HÃ€NG'],
-            ['slug' => 'services', 'title' => 'Dá»ŠCH Vá»¤'],
-            ['slug' => 'neighborhoods', 'title' => 'KHU Vá»°C'],
-            ['slug' => 'home-valuation', 'title' => 'Äá»ŠNH GIÃ NHÃ€'],
-            ['slug' => 'blog', 'title' => 'BÃ€I VIáº¾T'],
-            ['slug' => 'contact', 'title' => 'LIÃŠN Há»†'],
-            ['slug' => 'join-team', 'title' => 'GIA NHáº¬P Äá»˜I NGÅ¨'],
+            ['slug' => 'home', 'title' => 'Trang chá»§'],
+            ['slug' => 'buy', 'title' => 'Mua nhÃ '],
+            ['slug' => 'sell', 'title' => 'BÃ¡n nhÃ '],
+            ['slug' => 'properties', 'title' => 'Báº¥t Ä‘á»™ng sáº£n'],
+            ['slug' => 'about', 'title' => 'Giá»›i thiá»‡u'],
+            ['slug' => 'contact', 'title' => 'LiÃªn há»‡'],
         ],
         'footer' => [
-            ['slug' => 'home', 'title' => 'TRANG CHá»¦'],
-            ['slug' => 'about', 'title' => 'Vá»€ ETHAN'],
-            ['slug' => 'featured-properties', 'title' => 'NHÃ€ Ná»”I Báº¬T'],
-            ['slug' => 'past-transactions', 'title' => 'NHÃ€ ÄÃƒ BÃN Gáº¦N ÄÃ‚Y'],
-            ['slug' => 'neighborhoods', 'title' => 'KHU Vá»°C'],
-            ['slug' => 'home-valuation', 'title' => 'Äá»ŠNH GIÃ NHÃ€'],
-            ['slug' => 'contact', 'title' => 'LIÃŠN Há»†'],
+            ['slug' => 'home', 'title' => 'Trang chá»§'],
+            ['slug' => 'buy', 'title' => 'Mua nhÃ '],
+            ['slug' => 'sell', 'title' => 'BÃ¡n nhÃ '],
+            ['slug' => 'properties', 'title' => 'Báº¥t Ä‘á»™ng sáº£n'],
+            ['slug' => 'about', 'title' => 'Giá»›i thiá»‡u'],
+            ['slug' => 'contact', 'title' => 'LiÃªn há»‡'],
         ],
     ];
 }
@@ -206,7 +217,7 @@ function ethan_dao_vanilla_create_menu_item(int $menu_id, array $item, int $pare
 
 function ethan_dao_vanilla_seed_wordpress_menus(): void
 {
-    if (get_option('ethan_dao_vanilla_menu_seeded') === '2026-07-30-2') {
+    if (get_option('ethan_dao_vanilla_menu_seeded') === '2026-08-02-1') {
         return;
     }
 
@@ -224,27 +235,32 @@ function ethan_dao_vanilla_seed_wordpress_menus(): void
             $menu_id = (int) $menu->term_id;
         }
 
+        // Delete existing items to allow re-seeding
         $existing_items = wp_get_nav_menu_items($menu_id);
-        if (empty($existing_items)) {
-            foreach ($items as $item) {
-                $parent_id = ethan_dao_vanilla_create_menu_item($menu_id, $item);
-                foreach (($item['children'] ?? []) as $child_slug) {
-                    $titles = ethan_dao_vanilla_page_titles();
-                    ethan_dao_vanilla_create_menu_item($menu_id, [
-                        'slug' => $child_slug,
-                        'title' => $titles[$child_slug] ?? $child_slug,
-                    ], $parent_id);
-                }
+        if (!empty($existing_items)) {
+            foreach ($existing_items as $ei) {
+                wp_delete_post($ei->ID, true);
             }
         }
 
-        if (empty($locations[$location])) {
+        foreach ($items as $item) {
+            $parent_id = ethan_dao_vanilla_create_menu_item($menu_id, $item);
+            foreach (($item['children'] ?? []) as $child_slug) {
+                $titles = ethan_dao_vanilla_page_titles();
+                ethan_dao_vanilla_create_menu_item($menu_id, [
+                    'slug' => $child_slug,
+                    'title' => $titles[$child_slug] ?? $child_slug,
+                ], $parent_id);
+            }
+        }
+
+        if (empty($locations[$location]) || $locations[$location] != $menu_id) {
             $locations[$location] = $menu_id;
         }
     }
 
     set_theme_mod('nav_menu_locations', $locations);
-    update_option('ethan_dao_vanilla_menu_seeded', '2026-07-30-2');
+    update_option('ethan_dao_vanilla_menu_seeded', '2026-08-02-1');
 }
 add_action('init', 'ethan_dao_vanilla_seed_wordpress_menus', 30);
 
@@ -262,6 +278,9 @@ function ethan_dao_vanilla_menu_tree(string $location): array
 
     $nodes = [];
     foreach ($items as $item) {
+        if (trim($item->title) === 'Mua nhà') {
+            continue;
+        }
         $nodes[(int) $item->ID] = [
             'id' => (int) $item->ID,
             'parent' => (int) $item->menu_item_parent,
@@ -291,21 +310,29 @@ function ethan_dao_vanilla_render_primary_nav(): string
         return '<nav class="desktop-nav"></nav>';
     }
 
+    $current_url = rtrim(home_url(wp_parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH)), '/');
+    
     $html = '<nav class="desktop-nav"><a href="tel:+14699895786">(469) 989-5786</a>';
     foreach ($items as $item) {
         $title = esc_html($item['title']);
         $url = esc_url($item['url']);
+        $item_url = rtrim($item['url'], '/');
+        
+        $is_current_class = ($item_url === $current_url) ? ' is-current' : '';
+        
         if (!empty($item['children'])) {
-            $html .= '<div class="nav-group"><a class="nav-top" href="' . $url . '">' . $title . ' <svg><use href="#icon-chevron-down"/></svg></a><ul>';
+            $html .= '<div class="nav-group"><a class="nav-top' . $is_current_class . '" href="' . $url . '">' . $title . ' <svg><use href="#icon-chevron-down"/></svg></a><ul>';
             foreach ($item['children'] as $child) {
-                $html .= '<li><a href="' . esc_url($child['url']) . '">' . esc_html($child['title']) . '</a></li>';
+                $child_item_url = rtrim($child['url'], '/');
+                $child_is_current = ($child_item_url === $current_url) ? ' class="is-current"' : '';
+                $html .= '<li><a href="' . esc_url($child['url']) . '"' . $child_is_current . '>' . esc_html($child['title']) . '</a></li>';
             }
             $html .= '</ul></div>';
         } else {
-            $html .= '<a href="' . $url . '">' . $title . '</a>';
+            $html .= '<a href="' . $url . '" class="' . trim($is_current_class) . '">' . $title . '</a>';
         }
     }
-    $html .= '<a class="icon-button" href="' . esc_url(home_url('/browse-properties/')) . '" aria-label="TÃ¬m kiáº¿m"><svg><use href="#icon-search"/></svg></a></nav>';
+    $html .= '<div class="nav-search-wrap"><button class="icon-button" data-nav-search-toggle aria-label="Tìm kiếm" aria-expanded="false"><svg><use href="#icon-search"/></svg></button><div class="nav-search-panel" aria-hidden="true"><input type="text" class="nav-search-input" placeholder="Tìm địa chỉ, thành phố..." autocomplete="off" spellcheck="false" /><div class="nav-search-results"></div></div></div></nav>';
 
     return $html;
 }
@@ -313,10 +340,13 @@ function ethan_dao_vanilla_render_primary_nav(): string
 function ethan_dao_vanilla_flat_menu_links(string $location): string
 {
     $items = ethan_dao_vanilla_menu_tree($location);
+    $current_url = rtrim(home_url(wp_parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH)), '/');
     $links = '';
-    $walk = function (array $nodes) use (&$walk, &$links): void {
+    $walk = function (array $nodes) use (&$walk, &$links, $current_url): void {
         foreach ($nodes as $node) {
-            $links .= '<a href="' . esc_url($node['url']) . '">' . esc_html($node['title']) . '</a>';
+            $item_url = rtrim($node['url'], '/');
+            $class = ($item_url === $current_url) ? ' class="is-current"' : '';
+            $links .= '<a href="' . esc_url($node['url']) . '"' . $class . '>' . esc_html($node['title']) . '</a>';
             if (!empty($node['children'])) {
                 $walk($node['children']);
             }
@@ -336,7 +366,20 @@ function ethan_dao_vanilla_render_drawer_nav(): string
 
 function ethan_dao_vanilla_render_footer_nav(): string
 {
-    return '<div class="footer-nav"><nav>' . ethan_dao_vanilla_flat_menu_links('footer') . '</nav><div class="social-links gold"></div></div>';
+    $social = '<div class="social-links gold">'
+        . '<a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/default.svg" alt="Facebook" width="22" height="22" /></a>'
+        . '<a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/youtube/default.svg" alt="YouTube" width="22" height="22" /></a>'
+        . '<a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/default.svg" alt="Instagram" width="22" height="22" /></a>'
+        . '<a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tiktok/default.svg" alt="TikTok" width="22" height="22" /></a>'
+        . '<a href="https://zillow.com/" target="_blank" rel="noopener" aria-label="Zillow"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/zillow/default.svg" alt="Zillow" width="22" height="22" /></a>'
+        . '</div>';
+    return '<div class="footer-nav"><nav>' . ethan_dao_vanilla_flat_menu_links('footer') . '</nav>' . $social . '</div>';
 }
 
 
+
+function ethan_dao_vanilla_enqueue_assets() {
+    wp_enqueue_style('flickity-css', 'https://cdn.jsdelivr.net/npm/flickity@2.3.0/dist/flickity.min.css', array(), '2.3.0');
+    wp_enqueue_script('flickity-js', 'https://cdn.jsdelivr.net/npm/flickity@2.3.0/dist/flickity.pkgd.min.js', array(), '2.3.0', false);
+}
+add_action('wp_enqueue_scripts', 'ethan_dao_vanilla_enqueue_assets');

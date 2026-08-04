@@ -1,16 +1,17 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contact Ethan Dao | DFW Realtor</title>
+    <title>Liên hệ Ethan Dao | DFW Realtor</title>
     <meta name="description" content="Contact Ethan Dao for buying, selling, and investing in Dallas-Fort Worth real estate." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Great+Vibes&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?ver=1.0.12" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Dancing+Script:wght@700&family=Pattaya&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?ver=1785803813449" />
   <?php wp_head(); ?>
-  </head>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
   <body <?php body_class(); ?>><?php wp_body_open(); ?>
     <svg class="svg-sprite" aria-hidden="true">
       <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
@@ -33,30 +34,82 @@
                 <?php echo ethan_dao_vanilla_render_primary_nav(); ?>
         <button class="menu-button banner-menu-button" data-open-menu aria-label="Open menu">
           <span>Menu</span>
-          <svg><use href="#icon-chevron-up"/></svg>
+          <svg><use href="#icon-menu"/></svg>
         </button>
       </div>
     </header>
     <div class="menu-overlay" data-menu-overlay></div>
     <?php echo ethan_dao_vanilla_render_drawer_nav(); ?>
-    <main class="subpage-main"><section class="subpage-hero"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-headshot.jpg" alt="Kết nối ngay" /><div></div><div class="subpage-hero-inner reveal"><span class="h-kicker light">Contact</span><h1>Kết nối ngay</h1><p>Cho Ethan biết kế hoạch tiếp theo của bạn để nhận bước đi đầu tiên rõ ràng.</p></div></section>
-<section class="verified-strip"><div class="container"><span>Zillow verified profile data</span><strong>38 total sales</strong><strong>15 sales last 12 months</strong><strong>$368K average price</strong><strong>$188K-$529K price range</strong><strong>Service areas: Dallas, Fort Worth, Arlington</strong></div></section>
-<section class="page-section"><div class="content-split form-layout"><div class="split-media reveal"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-headshot-hero.jpg" alt="Gửi tin nhắn" /></div><div class="form-panel reveal"><span class="h-kicker">Gửi tin nhắn</span><h2>Gửi tin nhắn</h2><p>Điền form bên dưới để được tư vấn thêm về mua, bán hoặc đầu tư tại khu vực của bạn.</p><form data-static-form><input type="text" placeholder="HỌ VÀ TÊN" /><input type="email" placeholder="EMAIL" /><input type="text" placeholder="SỐ ĐIỆN THOẠI" /><select><option>Bạn quan tâm đến...</option><option>Mua nhà</option><option>Bán nhà</option><option>Đầu tư</option><option>Hợp tác đại lý</option></select><textarea placeholder="TIN NHẮN"></textarea><label><input type="checkbox" /> Tôi đồng ý để Ethan Dao liên hệ về dịch vụ bất động sản.</label><button class="btn-gold">Gửi thông tin</button><p class="form-success" hidden>Cảm ơn bạn. Đội ngũ của Ethan sẽ liên hệ sớm.</p></form></div></div></section><section id="work" class="work"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg" alt="Dallas-Fort Worth home exterior" /><div></div><div class="work-inner reveal"><span class="h-kicker light">Cùng bắt đầu</span><h2 class="h-section-title">Làm việc cùng Ethan</h2><p>Sẵn sàng mua bán nhà tại Dallas-Fort Worth? Dù mua, bán, chuyển đến DFW hay đầu tư, Ethan Dao mang đến tư vấn rõ ràng, hỗ trợ song ngữ Việt-Anh và chiến lược thực tế từ cuộc gọi đầu tiên đến ngày closing.</p><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn-gold">Kết nối ngay</a></div></section></main>
+    <main class="subpage-main">
+<section class="page-section" style="padding-top: 140px;">
+<div class="content-split" style="max-width: 1200px; padding: 0; margin: 0 auto;">
+  <div class="reveal" style="align-self: start;">
+    <div style="margin-bottom: 40px;">
+      <span style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700; display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+        Thông tin
+        <span style="display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5;"></span>
+      </span>
+      <h2 style="font-family: var(--font-display); font-size: clamp(42px, 5vw, 56px); font-weight: 600; line-height: 1.1; margin: 0; letter-spacing: -0.03em; color: var(--ink-strong);">Để lại lời nhắn</h2>
+    </div>
+    <p style="font-size: 18px; line-height: 1.6; color: var(--color-muted); max-width: 400px; margin-bottom: 48px;">Để lại tin nhắn — tôi thường trả lời trong vài tiếng.</p>
+    
+    <div style="display: flex; flex-direction: column; gap: 32px;">
+      <div>
+        <p style="font-family: var(--font-display); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 700; margin: 0 0 8px;">Gọi hoặc nhắn tin</p>
+        <a href="tel:+14699895786" style="font-family: var(--font-display); font-size: 28px; color: var(--ink-strong); text-decoration: none; font-weight: 500; letter-spacing: -0.02em;">(469) 989-5786</a>
+      </div>
+      <div>
+        <p style="font-family: var(--font-display); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 700; margin: 0 0 8px;">Email</p>
+        <a href="mailto:ethandaorealtor@gmail.com" style="font-family: var(--font-display); font-size: 26px; color: var(--ink-strong); text-decoration: none; font-weight: 500; letter-spacing: -0.02em; word-break: break-all;">ethandaorealtor@gmail.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="form-panel reveal" style="border: none; background: transparent; padding: 0; box-shadow: none;">
+    <form data-static-form>
+      <input type="text" placeholder="HỌ VÀ TÊN" style="border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding-left: 0; padding-right: 0;" />
+      <input type="email" placeholder="EMAIL" style="border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding-left: 0; padding-right: 0;" />
+      <input type="text" placeholder="SỐ ĐIỆN THOẠI" style="border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding-left: 0; padding-right: 0;" />
+      <div class="custom-select" data-custom-select style="border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding-left: 0; padding-right: 0;">
+        <div class="select-selected" data-select-trigger style="padding-left: 0;">BẠN QUAN TÂM ĐẾN...
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5l3 3 3-3"/></svg>
+        </div>
+        <div class="select-items" data-select-options>
+          <div data-value="Mua nhà">MUA NHÀ</div>
+          <div data-value="Bán nhà">BÁN NHÀ</div>
+          <div data-value="Đầu tư">ĐẦU TƯ</div>
+          <div data-value="Hợp tác đại lý">HỢP TÁC ĐẠI LÝ</div>
+        </div>
+        <input type="hidden" name="interest" value="">
+      </div>
+      <textarea placeholder="TIN NHẮN" style="border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding-left: 0; padding-right: 0; min-height: 100px; margin-top: 10px;"></textarea>
+      <button class="btn-ink" style="width: 100%; margin-top: 20px;">Gửi thông tin</button>
+      <p class="form-success" hidden style="text-align: center; margin-top: 20px;">Đã nhận. Tôi sẽ liên lạc sớm.</p>
+    </form>
+  </div>
+</div>
+</section></main>
     <footer class="footer">
       <div class="container">
-        <div class="footer-logo"><svg viewBox="0 0 200 200"><rect x="8" y="8" width="184" height="184" rx="16" fill="none" stroke="#0a0a0a" stroke-width="6"/><text x="100" y="100" dominant-baseline="central" text-anchor="middle" font-family="Google Sans Flex, sans-serif" font-weight="700" font-size="96" letter-spacing="-4" fill="#0a0a0a">ED</text></svg><span><strong>ETHAN DAO</strong><small>REALTOR</small></span></div>
-        <div class="footer-cols"><div><h3>Ethan Dao</h3><a href="tel:+14699895786">(469) 989-5786</a><a href="mailto:ethandaorealtor@gmail.com">ethandaorealtor@gmail.com</a></div><div><h3>Brokerage</h3><p>eXp Realty - Texas Ace Team</p><p>1431 Greenway Drive, Irving, TX 75038</p></div><div><h3>Search</h3><p><a href="<?php echo esc_url(home_url('/browse-properties/')); ?>">Browse properties</a></p><p><a href="<?php echo esc_url(home_url('/home-valuation/')); ?>">Home valuation</a></p></div><div><h3>Connect</h3><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Schedule a consultation</a></p><p><a href="<?php echo esc_url(home_url('/agent-collaborations/')); ?>">Hợp tác đại lýs</a></p></div></div>
+        <div class="footer-logo" style="gap:0"><a href="<?php echo esc_url(home_url('/')); ?>" class="wordmark banner-wordmark" style="color:var(--ink-strong);text-decoration:none;"><span>Ethan Dao</span><sup>®</sup></a></div>
+        <div class="footer-cols"><div><h3>Ethan Dao</h3><a href="tel:+14699895786">(469) 989-5786</a><a href="mailto:ethandaorealtor@gmail.com">ethandaorealtor@gmail.com</a></div><div><h3>Môi giới</h3><p>eXp Realty - Texas Ace Team</p><p>1431 Greenway Drive, Irving, TX 75038</p></div><div><h3>Tìm kiếm</h3><p><a href="<?php echo esc_url(home_url('/properties/')); ?>">Tìm nhà</a></p><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Định giá nhà</a></p></div><div><h3>Liên hệ</h3><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Đặt lịch tư vấn</a></p><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Hợp tác đại lý</a></p></div></div>
         <?php echo ethan_dao_vanilla_render_footer_nav(); ?>
         <p class="disclaimer">Ethan Dao (Tung Dao) is a licensed real estate agent in the State of Texas, affiliated with eXp Realty, LLC and the Texas Ace Team. Listing and sales information is intended solely for personal, non-commercial use to identify properties of interest. While generally considered reliable, this data is not guaranteed accurate; buyers are responsible for verifying all information independently. Equal Housing Opportunity.</p>
-        <p class="copyright">Â©2026 NTREIS. Tất cả rights reserved.</p>
+        <p class="copyright">©2026 NTREIS. All rights reserved.</p>
       </div>
-      <div class="bottom-bar"><span>ETHAN DAO - REALTORÂ®</span><span>eXp Realty - Texas Ace Team - Dallas-Fort Worth, TX</span><span>Copyright Â© 2026 | <a href="<?php echo esc_url(home_url('/contact/')); ?>">Chính sách bảo mật</a></span></div>
+      <div class="bottom-bar"><span>ETHAN DAO - REALTOR®</span><span>eXp Realty - Texas Ace Team - Dallas-Fort Worth, TX</span><span>Copyright © 2026 | <a href="<?php echo esc_url(home_url('/contact/')); ?>">Chính sách bảo mật</a></span></div>
     </footer>
-    <div class="floating-social"></div>
-    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/script.js?ver=1.0.2"></script>
+    <div class="floating-social">
+      <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/default.svg" alt="Facebook" width="22" height="22" /></a>
+      <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/youtube/default.svg" alt="YouTube" width="22" height="22" /></a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/default.svg" alt="Instagram" width="22" height="22" /></a>
+      <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tiktok/default.svg" alt="TikTok" width="22" height="22" /></a>
+      <a href="https://zillow.com/" target="_blank" rel="noopener" aria-label="Zillow"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/zillow/default.svg" alt="Zillow" width="22" height="22" /></a>
+    </div>
+    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/script.js?ver=1.0.58"></script>
   <?php wp_footer(); ?>
   </body>
 </html>
+
 
 
 

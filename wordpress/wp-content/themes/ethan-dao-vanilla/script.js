@@ -1,355 +1,385 @@
-const iconLinks = [
-  ["Facebook", "https://www.facebook.com/ethan.dao.realtortx/", "icon-facebook"],
-  ["YouTube", "https://www.youtube.com/@ethandaorealtor", "icon-youtube"],
-  ["Instagram", "https://www.instagram.com/ethandao.realtor/", "icon-instagram"],
-  ["TikTok", "https://www.tiktok.com/@ethandaorealtor", "icon-tiktok"],
-  ["Zillow", "https://www.zillow.com/profile/ethandaorealtor", "icon-zillow"],
-];
-
-function buildSocialLinks(target) {
-  target.innerHTML = iconLinks
-    .map(
-      ([label, href, icon]) =>
-        `<a href="${href}" target="_blank" rel="noopener noreferrer" aria-label="Ethan Dao on ${label}" title="${label}"><svg><use href="#${icon}"></use></svg></a>`
-    )
-    .join("");
-}
-
-document.querySelectorAll(".social-links,.floating-social").forEach(buildSocialLinks);
-
-const sideMenu = document.querySelector("[data-side-menu]");
-const menuOverlay = document.querySelector("[data-menu-overlay]");
-
-document.querySelectorAll(".wordmark,.footer-logo,.floating-social,.social-links").forEach((node) => node.classList.add("notranslate"));
-document.documentElement.lang = "vi";
-
-const navbar = document.querySelector("[data-navbar]");
-if (navbar) {
-  const updateNavbar = () => navbar.classList.toggle("scrolled", window.scrollY > 80);
-  updateNavbar();
-  window.addEventListener("scroll", updateNavbar, { passive: true });
-}
-
-const setMenu = (open) => {
-  if (!sideMenu || !menuOverlay) return;
-  sideMenu.classList.toggle("open", open);
-  menuOverlay.classList.toggle("open", open);
-  document.documentElement.classList.toggle("menu-open", open);
-  document.body.classList.toggle("menu-open", open);
-  sideMenu.setAttribute("aria-hidden", open ? "false" : "true");
-  window.scrollTo(0, window.scrollY);
-};
-setMenu(false);
-document.querySelector("[data-open-menu]")?.addEventListener("click", () => setMenu(true));
-document.querySelector("[data-close-menu]")?.addEventListener("click", () => setMenu(false));
-menuOverlay?.addEventListener("click", () => setMenu(false));
-sideMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
-window.addEventListener("pageshow", () => setMenu(false));
-
-document.querySelectorAll("[data-tab]").forEach((button) => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll("[data-tab]").forEach((tab) => tab.classList.remove("active"));
-    button.classList.add("active");
-  });
-});
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
-);
-document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
-
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const id = link.getAttribute("href");
-    if (!id || id === "#") return;
-    const target = document.querySelector(id);
-    if (!target) return;
-    event.preventDefault();
-    const top = target.getBoundingClientRect().top + window.scrollY - 96;
-    window.scrollTo({ top, behavior: "smooth" });
-  });
-});
-
-const salesTrack = document.querySelector("[data-sales-track]");
-document.querySelectorAll("[data-scroll-sales]").forEach((button) => {
-  button.addEventListener("click", () => {
-    if (!salesTrack) return;
-    const direction = Number(button.getAttribute("data-scroll-sales"));
-    salesTrack.scrollBy({ left: direction * salesTrack.clientWidth * 0.6, behavior: "smooth" });
-  });
-});
-
-const heroImage = document.querySelector("[data-parallax-image]");
-const heroCopy = document.querySelector("[data-parallax-copy]");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-function updateParallax() {
-  if (reduceMotion || window.innerWidth < 1024) return;
-  const progress = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1);
-  if (heroImage) heroImage.style.transform = `translateY(${progress * 50}px)`;
-  if (heroCopy) {
-    heroCopy.style.transform = `translateY(${progress * 60}px)`;
-    heroCopy.style.opacity = String(1 - progress * 0.88);
-  }
-}
-updateParallax();
-window.addEventListener("scroll", updateParallax, { passive: true });
-
-const normalizePath = (value) => {
-  try {
-    const url = new URL(value, location.origin);
-    if (url.origin !== location.origin) return "";
-    const path = url.pathname.replace(/index\.html$/i, "").replace(/\/+$/, "");
-    return path || "/";
-  } catch {
-    return "";
-  }
-};
-const currentPath = normalizePath(location.href);
-document.querySelectorAll(".is-current").forEach((link) => link.classList.remove("is-current"));
-document.querySelectorAll('a[href]:not([href^="#"])').forEach((link) => {
-  if (normalizePath(link.getAttribute("href")) === currentPath) {
-    link.classList.add("is-current");
-  }
-});
-
-document.querySelectorAll("[data-static-form]").forEach((form) => {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const success = form.querySelector(".form-success");
-    if (success) success.hidden = false;
-  });
-});
-
-document.querySelectorAll(".property-filter").forEach((filter) => {
-  const buttons = filter.querySelectorAll("[data-property-filter]");
-  const search = filter.querySelector("[data-property-search]");
-  const list = filter.nextElementSibling;
-  const cards = list ? [...list.querySelectorAll("[data-status]")] : [];
-  const apply = () => {
-    const active = filter.querySelector("[data-property-filter].active")?.getAttribute("data-property-filter") || "all";
-    const query = (search?.value || "").trim().toLowerCase();
-    cards.forEach((card) => {
-      const status = card.getAttribute("data-status") || "";
-      const haystack = `${card.textContent || ""} ${card.getAttribute("data-city") || ""}`.toLowerCase();
-      const statusOk = active === "all" || status === active;
-      const queryOk = !query || haystack.includes(query);
-      card.hidden = !(statusOk && queryOk);
-    });
-  };
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      buttons.forEach((b) => b.classList.remove("active"));
-      button.classList.add("active");
-      apply();
-    });
-  });
-  search?.addEventListener("input", apply);
-});
-
-const zillowMap = document.querySelector("[data-zillow-map]");
-if (zillowMap) {
-  const mapItems = {
-    almond: ["For sale", "3508 Almond Ln, McKinney, TX 75070", "$495,000 · 4 bd · 3 ba · 3,045 sqft"],
-    bison: ["For sale", "LOT 156 Bison Ridge Dr, Stephenville, TX 76401", "$99,000 · Lot / Land · 135 days on Zillow"],
-    dodson: ["Sold", "2610 Dodson St, Garland, TX 75042", "2 bd · 3 ba · 1,542 sqft · Seller"],
-    mandarin: ["Sold", "5816 Mandarin Ln, Sachse, TX 75048", "4 bd · 2 ba · 2,081 sqft · Buyer"],
-    duster: ["Sold", "1729 Duster Cir, Arlington, TX 76018", "3 bd · 2 ba · 1,457 sqft · Buyer"],
-    poppy: ["Sold", "697 Poppy Ln, Lavon, TX 75166", "4 bd · 2 ba · 1,791 sqft · Buyer"],
-    tidal: ["Sold", "604 Tidal Dr, McKinney, TX 75071", "4 bd · 3 ba · 2,059 sqft · Buyer"],
-  };
-  const markers = [...zillowMap.querySelectorAll("[data-map-marker]")];
-  const cards = [...zillowMap.querySelectorAll("[data-map-card]")];
-  const filters = [...zillowMap.querySelectorAll("[data-map-filter]")];
-  const popover = zillowMap.querySelector("[data-map-popover]");
-
-  const setActiveMapItem = (id) => {
-    markers.forEach((marker) => marker.classList.toggle("active", marker.dataset.mapMarker === id));
-    cards.forEach((card) => card.classList.toggle("active", card.dataset.mapCard === id));
-    const marker = markers.find((item) => item.dataset.mapMarker === id);
-    const item = mapItems[id];
-    if (!marker || !item || !popover) return;
-    const [label, address, detail] = item;
-    popover.innerHTML = `<span>${label}</span><strong>${address}</strong><small>${detail}</small>`;
-    popover.style.left = marker.style.getPropertyValue("--x");
-    popover.style.top = `calc(${marker.style.getPropertyValue("--y")} + 34px)`;
-  };
-
-  const applyMapFilter = (filter) => {
-    filters.forEach((button) => button.classList.toggle("active", button.dataset.mapFilter === filter));
-    const visibleIds = [];
-    markers.forEach((marker) => {
-      const visible = filter === "all" || marker.dataset.status === filter;
-      marker.classList.toggle("is-hidden", !visible);
-      if (visible) visibleIds.push(marker.dataset.mapMarker);
-    });
-    cards.forEach((card) => {
-      const visible = filter === "all" || card.dataset.status === filter;
-      card.hidden = !visible;
-    });
-    const current = markers.find((marker) => marker.classList.contains("active") && !marker.classList.contains("is-hidden"));
-    setActiveMapItem(current?.dataset.mapMarker || visibleIds[0] || "almond");
-  };
-
-  filters.forEach((button) => button.addEventListener("click", () => applyMapFilter(button.dataset.mapFilter || "all")));
-  markers.forEach((marker) => marker.addEventListener("click", () => setActiveMapItem(marker.dataset.mapMarker)));
-  cards.forEach((card) => card.addEventListener("click", () => setActiveMapItem(card.dataset.mapCard)));
-  setActiveMapItem("almond");
-}
-
-const profileMapNode = document.querySelector("[data-profile-map]");
-if (profileMapNode && window.L) {
-  const profileMap = L.map(profileMapNode, {
-    attributionControl: true,
-    scrollWheelZoom: false,
-    zoomControl: false,
-  });
-
-  L.control.zoom({ position: "bottomright" }).addTo(profileMap);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-    maxZoom: 19,
-  }).addTo(profileMap);
-
-  const profileMapListings = [
-    { id: "almond", type: "sale", price: "495K", title: "3508 Almond Ln, McKinney, TX 75070", detail: "$495,000 - 4 bd - 3 ba - 3,045 sqft", lat: 33.173, lng: -96.68 },
-    { id: "bison", type: "sale", price: "99K", title: "LOT 156 Bison Ridge Dr, Stephenville, TX 76401", detail: "$99,000 - Lot / Land - 135 days on Zillow", lat: 32.2207, lng: -98.202 },
-    { id: "dodson", type: "sold", title: "2610 Dodson St, Garland, TX 75042", detail: "Sold - 2 bd - 3 ba - 1,542 sqft - Seller", lat: 32.919, lng: -96.663 },
-    { id: "mandarin", type: "sold", title: "5816 Mandarin Ln, Sachse, TX 75048", detail: "Sold - 4 bd - 2 ba - 2,081 sqft - Buyer", lat: 32.978, lng: -96.594 },
-    { id: "duster", type: "sold", title: "1729 Duster Cir, Arlington, TX 76018", detail: "Sold - 3 bd - 2 ba - 1,457 sqft - Buyer", lat: 32.655, lng: -97.087 },
-    { id: "poppy", type: "sold", title: "697 Poppy Ln, Lavon, TX 75166", detail: "Sold - 4 bd - 2 ba - 1,791 sqft - Buyer", lat: 33.032, lng: -96.438 },
-    { id: "tidal", type: "sold", title: "604 Tidal Dr, McKinney, TX 75071", detail: "Sold - 4 bd - 3 ba - 2,059 sqft - Buyer", lat: 33.246, lng: -96.646 },
-    { type: "sold", title: "Dallas, TX", detail: "Sold record on Zillow profile", lat: 32.776, lng: -96.797 },
-    { type: "sold", title: "Dallas, TX", detail: "Sold record on Zillow profile", lat: 32.815, lng: -96.82 },
-    { type: "sold", title: "Dallas, TX", detail: "Sold record on Zillow profile", lat: 32.864, lng: -96.77 },
-    { type: "sold", title: "Dallas, TX", detail: "Sold record on Zillow profile", lat: 32.918, lng: -96.738 },
-    { type: "sold", title: "Garland, TX", detail: "Sold record on Zillow profile", lat: 32.912, lng: -96.638 },
-    { type: "sold", title: "Garland, TX", detail: "Sold record on Zillow profile", lat: 32.884, lng: -96.602 },
-    { type: "sold", title: "Sachse, TX", detail: "Sold record on Zillow profile", lat: 32.99, lng: -96.572 },
-    { type: "sold", title: "Wylie, TX", detail: "Sold record on Zillow profile", lat: 33.015, lng: -96.536 },
-    { type: "sold", title: "Richardson, TX", detail: "Sold record on Zillow profile", lat: 32.948, lng: -96.729 },
-    { type: "sold", title: "Plano, TX", detail: "Sold record on Zillow profile", lat: 33.019, lng: -96.699 },
-    { type: "sold", title: "Frisco, TX", detail: "Sold record on Zillow profile", lat: 33.15, lng: -96.824 },
-    { type: "sold", title: "McKinney, TX", detail: "Sold record on Zillow profile", lat: 33.198, lng: -96.639 },
-    { type: "sold", title: "McKinney, TX", detail: "Sold record on Zillow profile", lat: 33.234, lng: -96.706 },
-    { type: "sold", title: "Lavon, TX", detail: "Sold record on Zillow profile", lat: 33.061, lng: -96.431 },
-    { type: "sold", title: "Rowlett, TX", detail: "Sold record on Zillow profile", lat: 32.902, lng: -96.563 },
-    { type: "sold", title: "Mesquite, TX", detail: "Sold record on Zillow profile", lat: 32.766, lng: -96.599 },
-    { type: "sold", title: "Irving, TX", detail: "Sold record on Zillow profile", lat: 32.814, lng: -96.949 },
-    { type: "sold", title: "Grand Prairie, TX", detail: "Sold record on Zillow profile", lat: 32.747, lng: -97.008 },
-    { type: "sold", title: "Arlington, TX", detail: "Sold record on Zillow profile", lat: 32.735, lng: -97.108 },
-    { type: "sold", title: "Arlington, TX", detail: "Sold record on Zillow profile", lat: 32.682, lng: -97.135 },
-    { type: "sold", title: "Mansfield, TX", detail: "Sold record on Zillow profile", lat: 32.563, lng: -97.141 },
-    { type: "sold", title: "Fort Worth, TX", detail: "Sold record on Zillow profile", lat: 32.755, lng: -97.33 },
-    { type: "sold", title: "Fort Worth, TX", detail: "Sold record on Zillow profile", lat: 32.69, lng: -97.28 },
-    { type: "sold", title: "Keller, TX", detail: "Sold record on Zillow profile", lat: 32.934, lng: -97.229 },
-    { type: "sold", title: "Euless, TX", detail: "Sold record on Zillow profile", lat: 32.837, lng: -97.082 },
-    { type: "sold", title: "Carrollton, TX", detail: "Sold record on Zillow profile", lat: 32.975, lng: -96.889 },
-    { type: "sold", title: "Lewisville, TX", detail: "Sold record on Zillow profile", lat: 33.046, lng: -96.994 },
-    { type: "sold", title: "Flower Mound, TX", detail: "Sold record on Zillow profile", lat: 33.014, lng: -97.096 },
-    { type: "sold", title: "Cedar Hill, TX", detail: "Sold record on Zillow profile", lat: 32.588, lng: -96.956 },
-    { type: "sold", title: "Waxahachie, TX", detail: "Sold record on Zillow profile", lat: 32.386, lng: -96.848 },
-    { type: "sold", title: "Denton, TX", detail: "Sold record on Zillow profile", lat: 33.214, lng: -97.133 },
-    { type: "sold", title: "Rockwall, TX", detail: "Sold record on Zillow profile", lat: 32.931, lng: -96.459 },
-    { type: "sold", title: "Forney, TX", detail: "Sold record on Zillow profile", lat: 32.748, lng: -96.471 },
-  ];
-
-  const markerIcon = (item) =>
-    L.divIcon({
-      className: `profile-map-marker ${item.type === "sale" ? "sale-label" : "sold-dot"}`,
-      html: item.type === "sale" ? `<span class="price">${item.price}</span>` : '<span class="dot"></span>',
-      iconSize: item.type === "sale" ? [46, 26] : [22, 22],
-      iconAnchor: item.type === "sale" ? [23, 13] : [11, 11],
-    });
-
-  const markers = profileMapListings.map((item) => {
-    const marker = L.marker([item.lat, item.lng], { icon: markerIcon(item), keyboard: false });
-    marker.bindPopup(`<strong>${item.title}</strong><span>${item.detail}</span>`, { className: "profile-map-popup" });
-    marker.profileType = item.type;
-    marker.addTo(profileMap);
-    return marker;
-  });
-
-  const profileMapBounds = [
-    [32.05, -99.15],
-    [34.25, -95.65],
-  ];
-  const refitProfileMap = () => {
-    profileMap.invalidateSize();
-    profileMap.fitBounds(profileMapBounds, { padding: [8, 8] });
-  };
-  refitProfileMap();
-  window.addEventListener("resize", refitProfileMap);
-  setTimeout(refitProfileMap, 150);
-  setTimeout(refitProfileMap, 700);
-  new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        refitProfileMap();
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.2 }
-  ).observe(profileMapNode);
-
-  const setProfileMapFilter = (filter) => {
-    document.querySelectorAll("[data-profile-map-filter]").forEach((button) => {
-      button.classList.toggle("active", button.dataset.profileMapFilter === filter);
-    });
-    markers.forEach((marker) => {
-      const visible = filter === "all" || marker.profileType === filter;
-      if (visible && !profileMap.hasLayer(marker)) marker.addTo(profileMap);
-      if (!visible && profileMap.hasLayer(marker)) marker.removeFrom(profileMap);
-    });
-  };
-
-  document.querySelectorAll("[data-profile-map-filter]").forEach((button) => {
-    button.addEventListener("click", () => setProfileMapFilter(button.dataset.profileMapFilter || "all"));
-  });
-}
-
-const alwayzzBanner = document.querySelector("[data-alwayzz-banner]");
-if (alwayzzBanner) {
-  const makeDecorativeLines = (selector, count, side) => {
-    const target = alwayzzBanner.querySelector(selector);
-    if (!target || target.childElementCount) return;
-    for (let i = 0; i < count; i += 1) {
-      const line = document.createElement("span");
-      line.className = "alwayzz-line";
-      const width = 60 + i * 10;
-      line.style.width = side === "top" ? `${Math.min(92, 28 + i * 3.2)}%` : `${width}px`;
-      line.style.animationDelay = `${i * 0.25}s`;
-      target.appendChild(line);
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Mobile Menu
+  const menuBtn = document.querySelector('[data-open-menu]');
+  const closeBtn = document.querySelector('[data-close-menu]');
+  const sideMenu = document.querySelector('[data-side-menu]');
+  const overlay = document.querySelector('[data-menu-overlay]');
+  
+  const toggleMenu = (forceClose = false) => {
+    if (!sideMenu || !overlay) return;
+    const isOpening = !forceClose && !sideMenu.classList.contains('open');
+    
+    if (isOpening) {
+      sideMenu.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    } else {
+      sideMenu.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
     }
   };
 
-  makeDecorativeLines(".alwayzz-lines-left", 20, "left");
-  makeDecorativeLines(".alwayzz-lines-right", 20, "right");
-  makeDecorativeLines(".alwayzz-lines-top", 20, "top");
+  if(menuBtn) menuBtn.addEventListener('click', () => toggleMenu(false));
+  if(closeBtn) closeBtn.addEventListener('click', () => toggleMenu(true));
+  if(overlay) overlay.addEventListener('click', () => toggleMenu(true));
 
-  const drawer = alwayzzBanner.querySelector("[data-alwayzz-drawer]");
-  const toggle = alwayzzBanner.querySelector("[data-alwayzz-menu-toggle]");
-  const closeButton = alwayzzBanner.querySelector("[data-alwayzz-menu-close]");
-  const setDrawer = (open) => {
-    if (!drawer || !toggle) return;
-    drawer.classList.toggle("is-open", open);
-    drawer.setAttribute("aria-hidden", open ? "false" : "true");
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    document.documentElement.classList.toggle("alwayzz-menu-open", open);
-  };
+  // 2. Reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('active');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => revealObserver.observe(r));
 
-  toggle?.addEventListener("click", () => setDrawer(!drawer?.classList.contains("is-open")));
-  closeButton?.addEventListener("click", () => setDrawer(false));
-  drawer?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setDrawer(false)));
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setDrawer(false);
+  // 3. Parallax
+  const parallaxImg = document.querySelector('[data-parallax-image]');
+  const parallaxCopy = document.querySelector('[data-parallax-copy]');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if(parallaxImg) parallaxImg.style.transform = `translateY(${scrollY * 0.2}px)`;
+    if(parallaxCopy) parallaxCopy.style.transform = `translateY(${scrollY * 0.1}px)`;
   });
-}
+
+  // 4. Forms
+  const forms = document.querySelectorAll('[data-static-form]');
+  forms.forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const successMsg = form.querySelector('.form-success');
+      if(successMsg) successMsg.removeAttribute('hidden');
+      form.reset();
+    });
+  });
+
+  // 5. Sales track carousels
+  const tracks = document.querySelectorAll('[data-sales-track], [data-flickity-carousel]');
+  tracks.forEach(track => {
+    if (typeof Flickity !== 'undefined') {
+      const flkty = new Flickity(track, {
+        cellAlign: 'left',
+        contain: true,
+        prevNextButtons: false,
+        pageDots: false,
+        groupCells: '80%'
+      });
+      
+      const container = track.closest('.container') || track.parentElement;
+      const prevBtn = container.querySelector('[data-scroll-sales="-1"], .flkty-btn-prev');
+      const nextBtn = container.querySelector('[data-scroll-sales="1"], .flkty-btn-next');
+      
+      if (prevBtn) prevBtn.addEventListener('click', () => flkty.previous());
+      if (nextBtn) nextBtn.addEventListener('click', () => flkty.next());
+
+      flkty.on('staticClick', (event, pointer, cellElement) => {
+        if (!cellElement) return;
+        const article = cellElement.matches('article[data-href]')
+          ? cellElement
+          : cellElement.querySelector('article[data-href]');
+        if (article) window.location.href = article.dataset.href;
+      });
+    }
+  });
+
+  // 6. Nav property search
+  const navSearchToggle = document.querySelector('[data-nav-search-toggle]');
+  const navSearchPanel  = document.querySelector('.nav-search-panel');
+  const navSearchInput  = document.querySelector('.nav-search-input');
+  const navSearchResults = document.querySelector('.nav-search-results');
+
+  if (navSearchToggle && navSearchPanel) {
+    const openSearch = () => {
+      navSearchPanel.setAttribute('aria-hidden', 'false');
+      navSearchToggle.setAttribute('aria-expanded', 'true');
+      navSearchInput.focus();
+    };
+    const closeSearch = () => {
+      navSearchPanel.setAttribute('aria-hidden', 'true');
+      navSearchToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    navSearchToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navSearchPanel.getAttribute('aria-hidden') === 'false' ? closeSearch() : openSearch();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navSearchToggle.closest('.nav-search-wrap').contains(e.target)) closeSearch();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSearch();
+    });
+
+    navSearchInput.addEventListener('input', () => {
+      const q = navSearchInput.value.trim().toLowerCase();
+      if (!q || !window.ethanProperties || window.ethanProperties.length === 0) {
+        navSearchResults.innerHTML = '';
+        return;
+      }
+      const matches = window.ethanProperties.filter(p =>
+        (p.address + ' ' + p.city).toLowerCase().includes(q)
+      ).slice(0, 7);
+
+      if (matches.length === 0) {
+        navSearchResults.innerHTML = '<p class="nav-search-empty">Không tìm thấy kết quả</p>';
+        return;
+      }
+      navSearchResults.innerHTML = matches.map(p => {
+        const isSale = p.status === 'for sale';
+        const label  = isSale ? (p.price || 'Đang bán') : 'Đã bán';
+        const tag    = isSale ? 'sale' : 'sold';
+        return `<a href="${p.url}" class="nav-search-item">
+          <img src="${p.image}" alt="" loading="lazy" />
+          <div><strong>${p.address}</strong><span>${p.city}</span></div>
+          <em class="${tag}">${label}</em>
+        </a>`;
+      }).join('');
+    });
+  }
+
+  // 6b. Property tabs (Search/Hero)
+  const searchTabs = document.querySelectorAll('.search-tabs button');
+  searchTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      searchTabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // 7. Property filters (Browse properties)
+  const propFilters = document.querySelectorAll('[data-property-filter]');
+  const propItems = document.querySelectorAll('.property-list article');
+  const propSearch = document.querySelector('[data-property-search]');
+  
+  function filterProperties() {
+    const activeFilter = document.querySelector('[data-property-filter].active')?.getAttribute('data-property-filter') || 'all';
+    const query = propSearch ? propSearch.value.trim().toLowerCase() : '';
+    propItems.forEach(item => {
+      const status = item.getAttribute('data-status') || '';
+      const city = item.getAttribute('data-city') || '';
+      const text = (item.textContent + ' ' + city).toLowerCase();
+      const matchStatus = activeFilter === 'all' || status === activeFilter;
+      const matchQuery = query === '' || text.includes(query);
+      const show = matchStatus && matchQuery;
+      // Target the parent <a> card so the grid collapses properly
+      const card = item.closest('a') || item;
+      card.style.setProperty('display', show ? '' : 'none', 'important');
+    });
+  }
+
+  if(propFilters.length) {
+    propFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        propFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterProperties();
+      });
+    });
+  }
+  if(propSearch) {
+    propSearch.addEventListener('input', filterProperties);
+  }
+
+  // 8. Map
+  const mapEl = document.getElementById('ethan-profile-map');
+  if(mapEl && typeof L !== 'undefined') {
+    const map = L.map('ethan-profile-map', {
+      zoomControl: true,
+      scrollWheelZoom: false
+    }).setView([32.820, -96.860], 8);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    const locations = [
+      { coords: [33.166350, -96.684352], status: 'sale',  title: '3508 Almond Ln',          city: 'McKinney, TX 75070',      price: '$474,900' },
+      { coords: [32.224000, -98.202000], status: 'sale',  title: 'LOT 156 Bison Ridge Dr',   city: 'Stephenville, TX 76401',  price: '$99,000'  },
+      { coords: [32.913000, -96.639000], status: 'sold',  title: '2610 Dodson St',            city: 'Garland, TX 75042',       price: 'Đã bán'   },
+      { coords: [32.975446, -96.583163], status: 'sold',  title: '5816 Mandarin Ln',          city: 'Sachse, TX 75048',        price: 'Đã bán'   },
+      { coords: [32.664928, -97.078593], status: 'sold',  title: '1729 Duster Cir',           city: 'Arlington, TX 76018',     price: 'Đã bán'   },
+      { coords: [33.001064, -96.448097], status: 'sold',  title: '697 Poppy Ln',              city: 'Lavon, TX 75166',         price: 'Đã bán'   },
+      { coords: [33.210000, -96.608000], status: 'sold',  title: '604 Tidal Dr',              city: 'McKinney, TX 75071',      price: 'Đã bán'   },
+      { coords: [32.880000, -96.608000], status: 'sold',  title: '7013 Birdwatch Dr',         city: 'Garland, TX 75043',       price: 'Đã bán'   },
+      { coords: [32.491918, -96.936630], status: 'sold',  title: '4438 Verbena St',           city: 'Midlothian, TX 76065',    price: 'Đã bán'   },
+      { coords: [33.003980, -96.452196], status: 'sold',  title: '815 Sunflower Rd',          city: 'Lavon, TX 75166',         price: 'Đã bán'   },
+      { coords: [32.810991, -96.676071], status: 'sold',  title: '2325 Park Vista Dr',        city: 'Dallas, TX 75228',        price: 'Đã bán'   },
+      { coords: [32.954006, -96.675050], status: 'sold',  title: '3101 Gayle Dr',             city: 'Garland, TX 75044',       price: 'Đã bán'   },
+      { coords: [33.006645, -96.838832], status: 'sold',  title: '4247 Millview Ln',          city: 'Dallas, TX 75287',        price: 'Đã bán'   },
+      { coords: [32.953017, -96.670338], status: 'sold',  title: '2814 Esquire Ln',           city: 'Garland, TX 75044',       price: 'Đã bán'   },
+      { coords: [33.007834, -96.442699], status: 'sold',  title: '569 Sierra Rdg',            city: 'Lavon, TX 75166',         price: 'Đã bán'   },
+      { coords: [33.009000, -96.447000], status: 'sold',  title: '463 Yellowstar Ln',         city: 'Lavon, TX 75166',         price: 'Đã bán'   },
+      { coords: [32.880185, -96.614438], status: 'sold',  title: '3001 Jeremes Lndg',         city: 'Garland, TX 75043',       price: 'Đã bán'   },
+      { coords: [32.879095, -96.754503], status: 'sold',  title: '7510 Holly Hill Dr',        city: 'Dallas, TX 75231',        price: 'Đã bán'   },
+      { coords: [32.308000, -95.481000], status: 'sold',  title: '23010 McFadden Ln',         city: 'Chandler, TX 75758',      price: 'Đã bán'   },
+      { coords: [32.942231, -96.609424], status: 'sold',  title: '1715 Lordsburg Dr',         city: 'Garland, TX 75040',       price: 'Đã bán'   },
+      { coords: [32.699235, -97.129711], status: 'sold',  title: '1306 Ashbury Dr',           city: 'Arlington, TX 76015',     price: 'Đã bán'   },
+      { coords: [32.632516, -97.106133], status: 'sold',  title: '6926 Snowy Owl St',         city: 'Arlington, TX 76002',     price: 'Đã bán'   },
+      { coords: [32.910215, -96.523714], status: 'sold',  title: '8006 Luna Dr',              city: 'Rowlett, TX 75088',       price: 'Đã bán'   },
+      { coords: [32.948493, -96.681326], status: 'sold',  title: '3525 Rockcrest Dr',         city: 'Garland, TX 75044',       price: 'Đã bán'   },
+      { coords: [32.965889, -96.580599], status: 'sold',  title: '4635 Jackson Meadows Dr',   city: 'Sachse, TX 75048',        price: 'Đã bán'   },
+      { coords: [32.934354, -96.676355], status: 'sold',  title: '2202 Moss Trl',             city: 'Garland, TX 75044',       price: 'Đã bán'   },
+      { coords: [32.971797, -96.870068], status: 'sold',  title: '2522 Melissa Ln',           city: 'Carrollton, TX 75006',    price: 'Đã bán'   },
+      { coords: [32.941199, -96.603205], status: 'sold',  title: '2810 Deer Creek Ct',        city: 'Garland, TX 75040',       price: 'Đã bán'   },
+      { coords: [32.615076, -97.360138], status: 'sold',  title: '2541 Prospect Hill Dr',     city: 'Fort Worth, TX 76123',    price: 'Đã bán'   },
+      { coords: [32.995792, -96.869569], status: 'sold',  title: '2613 Silverthorne Dr',      city: 'Dallas, TX 75287',        price: 'Đã bán'   },
+      { coords: [32.957943, -96.681044], status: 'sold',  title: '3413 Janwood Ln',           city: 'Garland, TX 75044',       price: 'Đã bán'   },
+      { coords: [32.867898, -97.272188], status: 'sold',  title: '7001 Deer Run Dr',          city: 'Watauga, TX 76137',       price: 'Đã bán'   },
+      { coords: [32.596730, -97.084540], status: 'sold',  title: '9214 Wild River Dr',        city: 'Arlington, TX 76002',     price: 'Đã bán'   },
+      { coords: [32.658883, -97.022646], status: 'sold',  title: '4687 Sarum Ct',             city: 'Grand Prairie, TX 75052', price: 'Đã bán'   },
+      { coords: [32.912328, -96.684620], status: 'sold',  title: '3606 Norma Dr',             city: 'Garland, TX 75042',       price: 'Đã bán'   },
+      { coords: [32.901618, -96.939118], status: 'sold',  title: '6826 Deseo',                city: 'Irving, TX 75039',        price: 'Đã bán'   },
+      { coords: [32.609146, -97.115948], status: 'sold',  title: '115 Fort Edward Dr',        city: 'Arlington, TX 76002',     price: 'Đã bán'   },
+      { coords: [32.656000, -97.021000], status: 'sold',  title: '5820 Tory Dr',              city: 'Grand Prairie, TX 75052', price: 'Đã bán'   },
+      { coords: [32.653988, -96.897358], status: 'sold',  title: '618 Flamingo Way',          city: 'Duncanville, TX 75116',   price: 'Đã bán'   }
+    ];
+
+    const markers = locations.map(loc => {
+      const isSale = loc.status === 'sale';
+      const icon = L.divIcon({
+        className: `custom-map-pin pin-${loc.status}`,
+        html: `<span class="pin-dot-only ${loc.status}"></span>`,
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+      });
+
+      const marker = L.marker(loc.coords, { icon }).addTo(map);
+      marker.bindPopup(`
+        <div class="map-popup-card">
+          <span class="popup-tag ${loc.status}">${isSale ? 'Đang bán' : 'Đã bán'}</span>
+          <strong>${loc.title}</strong>
+          <small>${loc.city}</small>
+          ${isSale ? `<div class="popup-price">${loc.price}</div>` : ''}
+        </div>
+      `);
+      marker.status = loc.status;
+      return marker;
+    });
+
+    const mapFilters = document.querySelectorAll('[data-profile-map-filter]');
+    mapFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        mapFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-profile-map-filter');
+        markers.forEach(marker => {
+          if(filter === 'all' || marker.status === filter) {
+            if(!map.hasLayer(marker)) map.addLayer(marker);
+          } else {
+            if(map.hasLayer(marker)) map.removeLayer(marker);
+          }
+        });
+      });
+    });
+  }
+
+  // 7. Animated Counters for Stats Section
+  const statElements = document.querySelectorAll('.stats-grid strong');
+  if(statElements.length > 0) {
+    const animateCounter = (el) => {
+      const originalText = el.textContent.trim();
+      const prefixMatch = originalText.match(/^[^\d]+/);
+      const suffixMatch = originalText.match(/[^\d]+$/);
+      const prefix = prefixMatch ? prefixMatch[0] : '';
+      const suffix = suffixMatch ? suffixMatch[0] : '';
+      const numMatch = originalText.match(/\d+/);
+      if(!numMatch) return;
+      const targetNum = parseInt(numMatch[0], 10);
+      const duration = 1600;
+      const startTime = performance.now();
+
+      const updateCount = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 4);
+        const currentNum = Math.floor(easeProgress * targetNum);
+        el.textContent = `${prefix}${currentNum}${suffix}`;
+        if(progress < 1) {
+          requestAnimationFrame(updateCount);
+        } else {
+          el.textContent = originalText;
+        }
+      };
+      requestAnimationFrame(updateCount);
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          const strongs = entry.target.querySelectorAll('strong');
+          strongs.forEach(s => animateCounter(s));
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const statsSection = document.querySelector('.stats');
+    if(statsSection) statsObserver.observe(statsSection);
+  }
+  // FAQ Accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('is-open');
+      // Close all siblings
+      item.closest('.faq-list').querySelectorAll('.faq-item.is-open').forEach(i => i.classList.remove('is-open'));
+      // Toggle clicked
+      if (!isOpen) item.classList.add('is-open');
+    });
+  });
+
+  // Custom Select
+  const customSelects = document.querySelectorAll('[data-custom-select]');
+  customSelects.forEach(select => {
+    const trigger = select.querySelector('[data-select-trigger]');
+    const options = select.querySelectorAll('[data-select-options] div');
+    const input = select.querySelector('input[type="hidden"]');
+    
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = select.classList.contains('is-open');
+      document.querySelectorAll('[data-custom-select].is-open').forEach(s => s.classList.remove('is-open'));
+      if(!isOpen) select.classList.add('is-open');
+    });
+    
+    options.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        trigger.innerHTML = opt.innerHTML + ' <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5l3 3 3-3"/></svg>';
+        trigger.classList.add('has-value');
+        input.value = opt.getAttribute('data-value');
+        select.classList.remove('is-open');
+      });
+    });
+  });
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('[data-custom-select].is-open').forEach(s => s.classList.remove('is-open'));
+  });
+
+  // Platforms marquee on mobile
+  if (window.innerWidth <= 767) {
+    const platformsSection = document.querySelector('.platforms');
+    if (platformsSection) {
+      const links = [...platformsSection.querySelectorAll('a')];
+      if (links.length) {
+        const wrap = document.createElement('div');
+        wrap.className = 'platforms-marquee-wrap';
+        const track = document.createElement('div');
+        track.className = 'platforms-marquee-track';
+        [...links, ...links.map(l => l.cloneNode(true))].forEach(l => track.appendChild(l));
+        wrap.appendChild(track);
+        links.forEach(l => l.remove());
+        platformsSection.appendChild(wrap);
+      }
+    }
+  }
+});
+

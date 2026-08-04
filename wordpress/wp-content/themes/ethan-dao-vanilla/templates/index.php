@@ -1,17 +1,18 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ethan Dao - Realtor | Dallas-Fort Worth Real Estate | eXp Realty</title>
-    <meta name="description" content="Ethan Dao is a Chuyên viên nổi bật Realtor helping buyers, sellers, and investors across Dallas-Fort Worth." />
+    <meta name="description" content="Ethan Dao là Realtor tại Dallas-Fort Worth, làm việc bằng tiếng Việt để giúp người Việt mua và bán nhà ở DFW." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Dancing+Script:wght@700&family=Dancing+Script:wght@700&family=Pattaya&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?ver=1.0.12" />
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?ver=1785803813450" />
   <?php wp_head(); ?>
-  </head>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
   <body <?php body_class(); ?>><?php wp_body_open(); ?>
     <svg class="svg-sprite" aria-hidden="true">
       <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
@@ -22,11 +23,15 @@
       <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
       <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M5 9h14M5 15h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
       <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></symbol>
-      <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103.45.053.845.12 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.673 3.667h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
-      <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
-      <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
-      <symbol id="icon-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
-      <symbol id="icon-zillow" viewBox="0 0 24 24"><path d="M12.006 0L1.086 8.627v3.868c3.386-2.013 11.219-5.13 14.763-6.015.11-.024.16.005.227.078.372.427 1.586 1.899 1.916 2.301a.128.128 0 0 1-.03.195 43.607 43.607 0 0 0-6.67 6.527c-.03.037-.006.043.012.03 2.642-1.134 8.828-2.94 11.622-3.452V8.627zm-.48 11.177c-2.136.708-8.195 3.307-10.452 4.576V24h21.852v-7.936c-2.99.506-11.902 3.16-15.959 5.246a.183.183 0 0 1-.23-.036l-2.044-2.429c-.055-.061-.062-.098.011-.208 1.574-2.3 4.789-5.899 6.833-7.418.042-.03.031-.06-.012-.042Z"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 512 512"><path fill="#0866FF" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V327.7h-63.2V256h63.2v-54.6c0-62.4 37.1-96.8 94-96.8 27.2 0 55.6 4.9 55.6 4.9v61.1h-31.3c-30.9 0-40.6 19.2-40.6 38.9V256h68.8l-11 71.7h-57.8v176.8C429.3 476.8 512 376 512 256z"/><path fill="#FFFFFF" d="M365.4 327.7l11-71.7h-68.8v-25.7c0-19.7 9.7-38.9 40.6-38.9h31.3v-61.1s-28.4-4.9-55.6-4.9c-56.9 0-94 34.4-94 96.8V256h-63.2v71.7h63.2v176.8c19.7 4.9 40.4 7.5 61.8 7.5 21.4 0 42.1-2.6 61.8-7.5V327.7h57.8z"/></symbol>
+      <symbol id="icon-youtube" viewBox="0 0 256 180"><path fill="#FF0000" d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134Z"/><path fill="#FFFFFF" d="m102.421 128.06 66.328-38.418-66.328-38.418z"/></symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></symbol>
+      <symbol id="icon-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000000"/></symbol>
+      <symbol id="icon-zillow" viewBox="0 0 24 24"><path fill="#006AFF" d="M12.006 0L1.086 8.627v3.868c3.386-2.013 11.219-5.13 14.763-6.015.11-.024.16.005.227.078.372.427 1.586 1.899 1.916 2.301a.128.128 0 0 1-.03.195 43.607 43.607 0 0 0-6.67 6.527c-.03.037-.006.043.012.03 2.642-1.134 8.828-2.94 11.622-3.452V8.627zm-.48 11.177c-2.136.708-8.195 3.307-10.452 4.576V24h21.852v-7.936c-2.99.506-11.902 3.16-15.959 5.246a.183.183 0 0 1-.23-.036l-2.044-2.429c-.055-.061-.062-.098.011-.208 1.574-2.3 4.789-5.899 6.833-7.418.042-.03.031-.06-.012-.042Z"/></symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1v-9.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="currentColor"/></symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1v-9.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="currentColor"/></symbol>
     </svg>
     <header class="navbar banner-header" data-navbar>
       <div class="nav-inner">
@@ -34,7 +39,7 @@
                 <?php echo ethan_dao_vanilla_render_primary_nav(); ?>
         <button class="menu-button banner-menu-button" data-open-menu aria-label="Open menu">
           <span>Menu</span>
-          <svg><use href="#icon-chevron-up"/></svg>
+          <svg><use href="#icon-menu"/></svg>
         </button>
       </div>
     </header>
@@ -50,26 +55,24 @@
         <div class="alwayzz-shell">
 
           <div class="alwayzz-content">
-            <div class="alwayzz-ticker" aria-label="Ethan Dao services">
-              <div class="alwayzz-marquee">
-                <span>Mua nhà DFW</span><span>Bán nhà có chiến lược</span><span>Định giá nhà</span><span>New-build communities</span><span>Đầu tư bất động sản</span>
-                <span>Mua nhà DFW</span><span>Bán nhà có chiến lược</span><span>Định giá nhà</span><span>New-build communities</span><span>Đầu tư bất động sản</span>
-                <span>Mua nhà DFW</span><span>Bán nhà có chiến lược</span><span>Định giá nhà</span><span>New-build communities</span><span>Đầu tư bất động sản</span>
-                <span>Mua nhà DFW</span><span>Bán nhà có chiến lược</span><span>Định giá nhà</span><span>New-build communities</span><span>Đầu tư bất động sản</span>
-              </div>
-            </div>
-            <h2>Real estate guidance <span>alwayzz</span> with Ethan.</h2>
-            <p>Tư vấn mua bán nhà tại Dallas-Fort Worth bằng chiến lược rõ ràng, dữ liệu thực tế và dịch vụ song ngữ Việt-Anh từ lần xem nhà đầu tiên đến ngày closing.</p>
+
+            <h2>Tìm nhà ở DFW, tôi đi cùng bạn <span>từ đầu đến cuối.</span></h2>
+            <p>Làm việc bằng tiếng Việt, hiểu rõ khu vực, không hối thúc bạn mua nếu chưa đúng nhà.</p>
             <div class="alwayzz-actions">
-              <a class="alwayzz-primary" href="<?php echo esc_url(home_url('/buyer-guide/')); ?>">Xem hướng dẫn mua nhà</a>
+              <a class="alwayzz-primary" href="<?php echo esc_url(home_url('/buy/')); ?>">
+                <span class="btn-icon-badge"><svg><use href="#icon-home"/></svg></span>
+                <span>Xem hướng dẫn mua nhà</span>
+              </a>
               <a class="alwayzz-book" href="tel:+14699895786">
-                <span><strong>Gọi Ethan ngay</strong><small><i></i>(469) 989-5786</small></span>
+                <span class="btn-icon-badge"><svg><use href="#icon-phone"/></svg></span>
+                <span>Gọi ngay: (469) 989-5786</span>
               </a>
             </div>
           </div>
 
+
           <div class="alwayzz-trusted" aria-label="Ethan Dao affiliations and platforms">
-            <p>Đồng hành cùng khách hàng mua, bán và đầu tư tại DFW</p>
+            <p>Realtor tại Dallas-Fort Worth</p>
             <div class="alwayzz-brand-marquee">
               <div>
                 <span class="linear">eXp Realty</span><span class="shopify">Texas Ace Team</span><span class="notion">Zillow</span><span class="webflow">YouTube</span><span class="figma">Facebook</span><span class="slack">Instagram</span><span class="stripe">TikTok</span><span class="framer">DFW Metroplex</span>
@@ -85,26 +88,32 @@
       <section id="legacy-hero" class="hero">
         <div class="hero-visual" data-parallax-image>
           <div class="hero-glow"></div>
-          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-cutout.png" alt="Ethan Dao, Realtor with eXp Realty, in a dark suit" />
+          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-cutout.png?v=1.0.58" alt="Ethan Dao, Realtor with eXp Realty, in a dark suit" />
         </div>
         <div class="hero-inner">
           <div class="hero-copy" data-parallax-copy>
             <span class="h-kicker light">eXp Realty Â· Texas Ace Team</span>
             <h1>ETHAN<br /><span>DAO</span></h1>
-            <p>Realtor &amp; Chuyên viên nổi bật <strong>2024 &amp; 2025</strong> â€” helping buyers, sellers, and investors move with confidence across the <strong>Dallas-Fort Worth Metroplex</strong>.</p>
+            <p>Realtor, eXp Realty · Texas Ace Team</p>
             <div class="hero-search">
               <div class="search-tabs">
                 <button class="active" data-tab="buy">BUY</button>
                 <button data-tab="rent">RENT</button>
               </div>
               <div class="search-box">
-                <div><svg><use href="#icon-search"/></svg><input type="text" placeholder="Search DFW by city, address, or neighborhood" /></div>
+                <div><svg><use href="#icon-search"/></svg><input type="text" placeholder="tìm kiếm DFW by city, address, or neighborhood" /></div>
                 <button>SEARCH</button>
               </div>
             </div>
             <div class="hero-social">
               <span>Follow Â· 15K+ community</span>
-              <div class="social-links light"></div>
+              <div class="social-links light">
+                <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/default.svg" alt="Facebook" width="22" height="22" /></a>
+                <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/youtube/default.svg" alt="YouTube" width="22" height="22" /></a>
+                <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/default.svg" alt="Instagram" width="22" height="22" /></a>
+                <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tiktok/default.svg" alt="TikTok" width="22" height="22" /></a>
+                <a href="https://zillow.com/" target="_blank" rel="noopener" aria-label="Zillow"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/zillow/default.svg" alt="Zillow" width="22" height="22" /></a>
+              </div>
             </div>
           </div>
         </div>
@@ -121,180 +130,232 @@
 
       <section class="about">
         <div class="about-grid">
-          <div class="portrait reveal"><span></span><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-headshot-hero.jpg" alt="Ethan Dao - Realtor, eXp Realty" /></div>
+          <div class="portrait reveal"><span></span><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-headshot-hero.jpg?v=1.0.58" alt="Ethan Dao - Realtor, eXp Realty" /></div>
           <div class="reveal">
-            <span class="h-kicker">Gặp Gỡ Ethan</span>
-            <h2 class="h-section-title">Realtor của bạn tại Dallas-Fort Worth</h2>
-            <p>Ethan Dao (Tung Dao) là Realtor thuộc eXp Realty và là thành viên Texas Ace Team, phục vụ người mua, người bán và nhà đầu tư tại Dallas-Fort Worth. Với thế mạnh am hiểu thị trường địa phương và truyền thông bất động sản, Ethan xây dựng các video tour nhà và hướng dẫn khu vực cho cộng đồng hơn 15.000 người theo dõi trên YouTube, Facebook, TikTok và Instagram. Xuất thân từ Tây Hồ, Hà Nội và là cựu sinh viên FPT University, Ethan mang đến góc nhìn quốc tế cùng dịch vụ song ngữ Việt-Anh, giúp hành trình mua nhà tại Mỹ rõ ràng, tự tin và hiệu quả hơn. Từ khách mua nhà lần đầu tại các khu nhà mới ở Lavon và McKinney đến gia đình và nhà đầu tư tại DFW, Ethan luôn tập trung vào kết quả thực tế, sự trung thực và trải nghiệm khách hàng.</p>
-            <div class="button-row"><a class="btn-ink" href="<?php echo esc_url(home_url('/contact/')); ?>">Làm Việc Cùng Ethan</a><a class="btn-outline-dark" href="<?php echo esc_url(home_url('/past-transactions/')); ?>">Xem Nhà Đã Bán</a></div>
+            <span class="h-kicker">Giới thiệu ngắn</span>
+            <h2 class="h-section-title">Môi giới bất động sản tại <span>DFW</span></h2>
+            <p>Tôi tên Ethan — Tùng Đào. Tôi đang giúp gia đình người Việt mua và bán nhà tại DFW, chủ yếu ở Lavon, McKinney, Garland. Làm việc hoàn toàn bằng tiếng Việt, từ lúc xem nhà đến ngày ký hợp đồng.</p>
+            <div class="button-row"><a class="btn-ink" href="<?php echo esc_url(home_url('/contact/')); ?>">Nhắn địa chỉ để định giá</a><a class="btn-outline-dark" href="<?php echo esc_url(home_url('/past-transactions/')); ?>">Xem nhà đã bán</a></div>
           </div>
         </div>
       </section>
 
       <section class="platforms">
-        <span>Theo Dõi Ethan Tại</span><strong>eXp Realty</strong><strong>Texas Ace Team</strong><strong>Zillow</strong><strong>YouTube</strong><strong>Facebook</strong><strong>Instagram</strong><strong>TikTok</strong>
+        <span>Theo Dõi Ethan Tại</span>
+        <a href="https://www.exprealty.com/" target="_blank" rel="noopener" class="platforms-pill">eXp Realty</a>
+        <a href="https://www.exprealty.com/us/tx/irving/teams/texas-ace-team" target="_blank" rel="noopener" class="platforms-pill">Texas Ace Team</a>
+        <a href="https://www.zillow.com/profile/ethandaorealtor" target="_blank" rel="noopener" aria-label="Zillow" class="platforms-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/zillow/default.svg" alt="Zillow" width="24" height="24" /></a>
+        <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" class="platforms-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/youtube/default.svg" alt="YouTube" width="24" height="24" /></a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="platforms-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/default.svg" alt="Facebook" width="24" height="24" /></a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="platforms-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/default.svg" alt="Instagram" width="24" height="24" /></a>
+        <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" class="platforms-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tiktok/default.svg" alt="TikTok" width="24" height="24" /></a>
       </section>
 
       <section class="map-section zillow-profile-section">
         <div class="zillow-profile-inner reveal">
-          <h2>Giao dịch đã bán và nhà đang bán của Tung Dao (40)</h2>
-          <p>Bản đồ và danh sách này hiển thị các giao dịch đã bán và nhà đang bán gần đây nhất.</p>
-          <div class="profile-map-filters" role="tablist" aria-label="Sales and listings map filters">
-            <button class="active" type="button" data-profile-map-filter="all">Tất cả</button>
-            <button type="button" data-profile-map-filter="sold"><span></span>Đã bán</button>
-            <button type="button" data-profile-map-filter="sale"><span></span>Đang bán</button>
+          <div class="map-section-header">
+            <div>
+              <span class="h-kicker">Giao dịch</span>
+              <h2 class="h-section-title">Nhà đã bán và đang bán <span>(40)</span></h2>
+              <p>Các giao dịch trong khu vực tôi đang làm.</p>
+            </div>
           </div>
-          <div id="ethan-profile-map" class="profile-map" data-profile-map aria-label="Tung Dao sales and listings map"></div>
+          <div id="ethan-profile-map" class="profile-map" data-profile-map aria-label="Ethan Dao sales and listings map"></div>
         </div>
       </section>
 
-      <section class="quote-band">
-        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-aerial-houston.jpg" alt="" />
-        <div></div>
-        <p class="reveal">"Giúp bạn tìm những căn nhà đẹp, giá hợp lý tại Dallas-Fort Worth và chia sẻ kinh nghiệm thực tế về bất động sản tại Mỹ."</p>
-      </section>
 
-      <section class="split">
-        <div class="split-wrap">
-          <div class="split-image right"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-newbuild.jpg" alt="Buy with Confidence" /></div>
-          <div class="split-card reveal">
-            <p class="h-eyebrow">Cho Người Mua</p>
-            <h2 class="h-section-title">Mua Nhà Tự Tin</h2>
-            <p>Dù bạn mua nhà lần đầu tại các cộng đồng nhà mới ở Lavon, McKinney, Wylie hay đang tìm cơ hội đầu tư tại Dallas-Fort Worth, Ethan sẽ hướng dẫn từng bước bằng kiến thức địa phương và lời khuyên thực tế. Với khả năng Việt-Anh lưu loát, Ethan giúp bạn hiểu rõ tài chính, khu vực và đàm phán để mua nhà tự tin hơn.</p>
-            <div class="button-row"><a href="<?php echo esc_url(home_url('/buyer-guide/')); ?>" class="btn-outline-dark">Hướng Dẫn Mua Nhà</a><a href="<?php echo esc_url(home_url('/browse-properties/')); ?>" class="btn-outline-dark">Tìm Nhà</a></div>
-          </div>
-        </div>
-      </section>
 
-      <section class="split reverse">
-        <div class="split-wrap">
-          <div class="split-image left"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg" alt="Sell with Strategy" /></div>
-          <div class="split-card reveal">
-            <p class="h-eyebrow">Cho Người Bán</p>
-            <h2 class="h-section-title">Bán Nhà Có Chiến Lược</h2>
-            <p>Marketing tốt giúp nhà bán tốt hơn. Ethan kết hợp chiến lược định giá sắc bén với hệ thống video marketing, đưa nhà của bạn tại Dallas-Fort Worth đến đúng nhóm người mua thông qua cộng đồng hơn 15.000 người theo dõi trên YouTube, Facebook, TikTok và Instagram. Mỗi giao dịch được xử lý rõ ràng, có kế hoạch và tập trung vào kết quả.</p>
-            <div class="button-row"><a href="<?php echo esc_url(home_url('/seller-guide/')); ?>" class="btn-outline-dark">Hướng Dẫn Bán Nhà</a><a href="<?php echo esc_url(home_url('/home-valuation/')); ?>" class="btn-outline-dark">Định Giá Nhà</a></div>
-          </div>
-        </div>
-      </section>
 
       <section class="recognition">
         <div class="glow"></div>
         <div class="recognition-grid">
-          <img class="reveal" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-awards.png" alt="Texas Ace Team Chuyên viên nổi bật crystal awards for Ethan Dao, 2024 and 2025" />
+          <img class="reveal" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-awards.png?v=2.0" alt="Texas Ace Team Top Producer awards cho Ethan Dao, 2024 và 2025" />
           <div class="reveal">
-            <span class="h-kicker light">Thành Tích</span>
-            <h2 class="h-section-title">Hai Năm Liên Tiếp <span>Chuyên viên nổi bật</span></h2>
-            <p>Được vinh danh là Chuyên viên nổi bật cùng <strong>Texas Ace Team tại eXp Realty</strong> trong năm 2024 và 2025, ghi nhận thành tích bán hàng ổn định, kết quả thực tế cho khách hàng tại Dallas-Fort Worth và cộng đồng hơn 15.000 người theo dõi trên YouTube, Facebook, TikTok và Instagram.</p>
-            <div class="badges"><span>Chuyên viên nổi bật 2024</span><span>Chuyên viên nổi bật 2025</span><span>Cộng Đồng 15K+</span></div>
+            <span class="h-kicker light"><span>Ghi nhận</span></span>
+            <h2 class="h-section-title">Giải thưởng <span>2024 và 2025</span></h2>
+            <p>Texas Ace Team trao giải này dựa trên số giao dịch hoàn tất trong năm và đánh giá trực tiếp từ khách hàng.</p>
           </div>
         </div>
       </section>
 
       <section class="beyond">
         <div class="container">
-          <h2 class="h-section-title reveal">Không chỉ là bất động sản cùng Ethan</h2>
-          <article class="media-row reveal"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-aerial-neighborhood.jpg" alt="Ethan Dao - Mua Ban Nha Dallas Texas" /><div><i></i><h3>Ethan Dao - Mua BÃ¡n NhÃ  Dallas Texas</h3><p>A YouTube channel hunting for beautiful, well-priced homes across Dallas-Fort Worth, with a new video every week.</p></div></article>
-          <article class="media-row reveal"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-ranch.jpg" alt="Real Estate for the Vietnamese Community" /><div><i></i><h3>Real Estate for the Vietnamese Community</h3><p>Bilingual guidance on buying, selling, and investing in the U.S. - breaking down the process step by step.</p></div></article>
-          <article class="media-row reveal"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-aerial-houston.jpg" alt="Life & Business in Texas" /><div><i></i><h3>Life &amp; Business in Texas</h3><p>Behind-the-scenes on TikTok and Instagram - neighborhoods, open houses, and everyday life in DFW.</p></div></article>
+          <h2 class="h-section-title reveal">Kênh YouTube hướng dẫn mua nhà <span>DFW</span></h2>
+          <article class="media-row reveal">
+            <div class="media-visual-link iframe-wrap"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=UUzaeoor-IXyqppQcl59dabw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            <div>
+              <i></i>
+              <h3><a href="https://www.youtube.com/channel/UCzaeoor-IXyqppQcl59dabw" target="_blank" rel="noopener noreferrer" class="media-copy-link">Tour nhà thực tế <span>Dallas Texas</span></a></h3>
+              <p>Tôi quay thực tế bên trong từng căn — không filter, không bỏ qua chỗ xấu. Để bạn xem trước khi đặt lịch.</p>
+            </div>
+          </article>
+          <article class="media-row reveal">
+            <div class="media-embed">
+              <iframe
+                src="https://www.youtube.com/embed/qsBWEIueBUs?rel=0"
+                title="Tour nhà mới và khu dân cư tại DFW cùng Ethan Dao"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div>
+              <i></i>
+              <h3><a href="https://www.youtube.com/watch?v=PH7ssSv_eoI" target="_blank" rel="noopener noreferrer" class="media-copy-link">Phân tích nhà mới và khu dân cư <span>DFW</span></a></h3>
+              <p>Review thực tế 4 mẫu nhà mới tại Lavon, giá $300K–$400K. Tôi xem từng mẫu và nói thẳng cái nào đáng đặt cọc.</p>
+            </div>
+          </article>
+          <article class="media-row reveal">
+            <div class="media-embed">
+              <iframe
+                src="https://www.youtube.com/embed/gxwWX1SubZY?rel=0"
+                title="Vlog open house và hành trình môi giới của Ethan Dao"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div>
+              <i></i>
+              <h3><a href="https://www.youtube.com/watch?v=gxwWX1SubZY" target="_blank" rel="noopener noreferrer" class="media-copy-link">Hậu trường nghề môi giới tại <span>Texas</span></a></h3>
+              <p>Vlog thực tế về một buổi closing — từng bước trong ngày hoàn tất giao dịch mua nhà tại Mỹ.</p>
+            </div>
+          </article>
         </div>
       </section>
 
       <section class="videos">
         <div class="video-grid">
-          <article class="reveal"><h3>Lavon 75166 - New-Build Community, 30 Min from Garland</h3><p>From $300K Â· Attractive builder incentives</p><div><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-newbuild.jpg" alt="" /><span><svg><use href="#icon-play"/></svg></span></div></article>
-          <article class="reveal"><h3>Wylie 75098 - 2017 Home in Inspiration Community</h3><p>Corner lot Â· Highly-rated schools</p><div><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg" alt="" /><span><svg><use href="#icon-play"/></svg></span></div></article>
-          <article class="reveal"><h3>New Homes in Lavon, Texas - $300K</h3><p>Live in or rent out right away</p><div><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-lavon.jpg" alt="" /><span><svg><use href="#icon-play"/></svg></span></div></article>
+          <article class="reveal"><h3>Lavon 75166 | khu nhà mới cách Garland khu người Việt</h3><p>Cách Garland khoảng 30 phút, giá từ $300K với nhiều ưu đãi từ builder. Nhà mới trong khu Lavon 75166.</p><a href="https://www.youtube.com/watch?v=PH7ssSv_eoI" target="_blank" rel="noopener noreferrer" class="video-thumbnail"><img src="https://i.ytimg.com/vi/PH7ssSv_eoI/hqdefault.jpg" alt="Thumbnail video Lavon 75166 của Ethan Dao" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" /><span><svg><use href="#icon-play"/></svg></span></a></article>
+          <article class="reveal"><h3>Wylie 75098 | căn nhà đời 2017 tại Inspiration Community</h3><p>Nhà 2017, hai mặt tiền trong khu Inspiration Community. Wylie 75098, trường tốt và cộng đồng yên tĩnh.</p><a href="https://www.youtube.com/shorts/uxfLLkoGMiE" target="_blank" rel="noopener noreferrer" class="video-thumbnail"><img src="https://i.ytimg.com/vi/uxfLLkoGMiE/hqdefault.jpg" alt="Thumbnail shorts Wylie 75098 của Ethan Dao" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" /><span><svg><use href="#icon-play"/></svg></span></a></article>
+          <article class="reveal"><h3>LAVON TEXAS - Lakepointe review 4 mẫu nhà new build</h3><p>4 mẫu nhà mới ở Lavon, $300K–$400K. Tôi xem và nói thật cái nào đáng tiền, cái nào không.</p><a href="https://www.youtube.com/watch?v=qsBWEIueBUs" target="_blank" rel="noopener noreferrer" class="video-thumbnail"><img src="https://i.ytimg.com/vi/qsBWEIueBUs/hqdefault.jpg" alt="Thumbnail video review nhà mới Lavon của Ethan Dao" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" /><span><svg><use href="#icon-play"/></svg></span></a></article>
         </div>
       </section>
 
       <section id="recent" class="recent">
         <div class="container">
-          <span class="h-kicker">Proven track record</span>
-          <h2 class="h-section-title">Nhà đã bán gần đây</h2>
+          <span class="h-kicker">Giao dịch thực tế</span>
+          <h2 class="h-section-title">Những căn nhà tôi vừa <span>chốt xong</span></h2>
           <div class="sales-track no-scrollbar" data-sales-track>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-garland.jpg" alt="" /><span>Đã bán</span><div><h3>2610 Dodson St, Garland, TX 75042</h3><p>2 Phòng ngủ &middot; 3 Phòng tắm &middot; 1,542 Sq.Ft. &middot; Seller</p></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-8.jpg" alt="" /><span>Đã bán</span><div><h3>5816 Mandarin Ln, Sachse, TX 75048</h3><p>4 Phòng ngủ &middot; 2 Phòng tắm &middot; 2,081 Sq.Ft. &middot; Buyer</p></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-arlington.jpg" alt="" /><span>Đã bán</span><div><h3>1729 Duster Cir, Arlington, TX 76018</h3><p>3 Phòng ngủ &middot; 2 Phòng tắm &middot; 1,457 Sq.Ft. &middot; Buyer</p></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-lavon.jpg" alt="" /><span>Đã bán</span><div><h3>697 Poppy Ln, Lavon, TX 75166</h3><p>4 Phòng ngủ &middot; 2 Phòng tắm &middot; 1,791 Sq.Ft. &middot; Buyer</p></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-mckinney-tidal.jpg" alt="" /><span>Đã bán</span><div><h3>604 Tidal Dr, McKinney, TX 75071</h3><p>4 Phòng ngủ &middot; 3 Phòng tắm &middot; 2,059 Sq.Ft. &middot; Buyer</p></div></article>
-          </div>          <div class="carousel-actions"><div><button data-scroll-sales="-1" aria-label="Previous"><svg><use href="#icon-chevron-left"/></svg></button><button data-scroll-sales="1" aria-label="Next"><svg><use href="#icon-chevron-right"/></svg></button></div><a href="<?php echo esc_url(home_url('/past-transactions/')); ?>" class="btn-gold">View Tất cả</a></div>
+            <?php
+            $_sold = array_filter(ethan_dao_vanilla_get_properties(), function($p) {
+                return ethan_dao_vanilla_property_meta('property_status', $p->ID) === 'sold';
+            });
+            foreach (array_slice(array_values($_sold), 0, 8) as $_p):
+                $_addr  = ethan_dao_vanilla_property_meta('property_address', $_p->ID);
+                $_beds  = ethan_dao_vanilla_property_meta('property_bedrooms', $_p->ID);
+                $_baths = ethan_dao_vanilla_property_meta('property_bathrooms', $_p->ID);
+                $_sqft  = ethan_dao_vanilla_property_meta('property_sqft', $_p->ID);
+                $_img   = ethan_dao_vanilla_property_meta('property_image', $_p->ID);
+                if ($_img === '') $_img = get_template_directory_uri() . '/assets/images/ethan-home-8.jpg';
+                $_parts = array_filter([
+                    $_beds  !== '' ? $_beds . ' Phòng ngủ'  : '',
+                    $_baths !== '' ? $_baths . ' Phòng tắm' : '',
+                    $_sqft  !== '' ? number_format((float) str_replace(',', '', $_sqft)) . ' Sq.Ft.' : '',
+                ]);
+            ?>
+            <article data-href="<?php echo esc_url(ethan_dao_vanilla_property_url($_p->ID)); ?>" style="cursor:pointer;"><img src="<?php echo esc_url($_img); ?>" alt="<?php echo esc_attr($_addr); ?>" loading="lazy" /><span>Đã bán</span><div><h3><?php echo esc_html($_addr); ?></h3><?php if ($_parts): ?><p><?php echo esc_html(implode(' · ', $_parts)); ?></p><?php endif; ?></div></article>
+            <?php endforeach; ?>
+          </div>          <div class="carousel-actions"><div><button data-scroll-sales="-1" aria-label="Previous"><svg><use href="#icon-chevron-left"/></svg></button><button data-scroll-sales="1" aria-label="Next"><svg><use href="#icon-chevron-right"/></svg></button></div><a href="<?php echo esc_url(home_url('/past-transactions/')); ?>" class="btn-primary-navy">Xem tất cả</a></div>
         </div>
       </section>
 
       <section class="listings">
         <div class="container">
-          <div class="center reveal"><span class="h-kicker light">Portfolio across DFW</span><h2 class="h-section-title">Homes Across Dallas-Fort Worth</h2></div>
-          <div class="listing-grid">
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg" alt="" /><span class="sale">Đang bán</span><div><h3>$495,000</h3><p>3508 Almond Ln, McKinney, TX 75070</p><small>4 Phòng ngủ &middot; 3 Phòng tắm &middot; 3,045 Sq.Ft.</small></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-aerial-neighborhood.jpg" alt="" /><span class="sale">Đang bán</span><div><h3>$99,000</h3><p>LOT 156 Bison Ridge Dr, Stephenville, TX 76401</p><small>Lot / Land</small></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-garland.jpg" alt="" /><span>Đã bán</span><div><h3>Đã bán</h3><p>2610 Dodson St, Garland, TX 75042</p><small>2 Phòng ngủ &middot; 3 Phòng tắm &middot; 1,542 Sq.Ft. &middot; Seller</small></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-8.jpg" alt="" /><span>Đã bán</span><div><h3>Đã bán</h3><p>5816 Mandarin Ln, Sachse, TX 75048</p><small>4 Phòng ngủ &middot; 2 Phòng tắm &middot; 2,081 Sq.Ft. &middot; Buyer</small></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-arlington.jpg" alt="" /><span>Đã bán</span><div><h3>Đã bán</h3><p>1729 Duster Cir, Arlington, TX 76018</p><small>3 Phòng ngủ &middot; 2 Phòng tắm &middot; 1,457 Sq.Ft. &middot; Buyer</small></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-lavon.jpg" alt="" /><span>Đã bán</span><div><h3>Đã bán</h3><p>697 Poppy Ln, Lavon, TX 75166</p><small>4 Phòng ngủ &middot; 2 Phòng tắm &middot; 1,791 Sq.Ft. &middot; Buyer</small></div></article>
-            <article><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-mckinney-tidal.jpg" alt="" /><span>Đã bán</span><div><h3>Đã bán</h3><p>604 Tidal Dr, McKinney, TX 75071</p><small>4 Phòng ngủ &middot; 3 Phòng tắm &middot; 2,059 Sq.Ft. &middot; Buyer</small></div></article>
-          </div>        </div>
-      </section>
-      <section class="browse-cta"><a href="<?php echo esc_url(home_url('/browse-properties/')); ?>" class="btn-outline-light">Browse Properties</a></section>
-
-      <section class="valuation">
-        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-aerial-neighborhood.jpg" alt="" />
-        <div></div>
-        <div class="container reveal">
-          <h2 class="h-section-title">Căn nhà của bạn tại Dallas-Fort Worth đáng giá bao nhiêu?</h2>
-          <div class="check-row"><span><svg><use href="#icon-check"/></svg>Định giá nhanh</span><span><svg><use href="#icon-check"/></svg>Tư vấn địa phương chuyên sâu</span><span><svg><use href="#icon-check"/></svg>Bán với giá tốt hơn</span></div>
-          <form data-static-form><input type="text" placeholder="Nhập địa chỉ nhà của bạn" /><button class="btn-gold">Nhận định giá nhà miễn phí</button></form>
+          <div class="reveal" style="margin-bottom: 24px;"><span class="h-kicker">Portfolio across DFW</span><h2 class="h-section-title">Nhà tại <span>Dallas-Fort Worth</span></h2></div>
+          <div class="sales-track no-scrollbar" data-sales-track>
+            <?php foreach (ethan_dao_vanilla_get_properties() as $_p):
+                $_status = ethan_dao_vanilla_property_meta('property_status', $_p->ID);
+                $_addr   = ethan_dao_vanilla_property_meta('property_address', $_p->ID);
+                $_price  = ethan_dao_vanilla_property_meta('property_price', $_p->ID);
+                $_pt     = ethan_dao_vanilla_property_meta('property_price_text', $_p->ID);
+                $_beds   = ethan_dao_vanilla_property_meta('property_bedrooms', $_p->ID);
+                $_baths  = ethan_dao_vanilla_property_meta('property_bathrooms', $_p->ID);
+                $_sqft   = ethan_dao_vanilla_property_meta('property_sqft', $_p->ID);
+                $_img    = ethan_dao_vanilla_property_meta('property_image', $_p->ID);
+                if ($_img === '') $_img = get_template_directory_uri() . '/assets/images/ethan-home-8.jpg';
+                if ($_pt === '' && $_status === 'for sale' && is_numeric($_price)) $_pt = '$' . number_format((float) $_price);
+                $_label  = $_status === 'for sale' ? 'Đang bán' : 'Đã bán';
+                $_cls    = $_status === 'for sale' ? 'sale' : '';
+                $_parts  = array_filter([
+                    $_beds  !== '' ? $_beds . ' Phòng ngủ'  : '',
+                    $_baths !== '' ? $_baths . ' Phòng tắm' : '',
+                    $_sqft  !== '' ? number_format((float) str_replace(',', '', $_sqft)) . ' Sq.Ft.' : '',
+                ]);
+                $_h3 = $_pt !== '' ? $_pt . ' · ' . $_addr : $_addr;
+            ?>
+            <article data-href="<?php echo esc_url(ethan_dao_vanilla_property_url($_p->ID)); ?>" style="cursor:pointer;"><img src="<?php echo esc_url($_img); ?>" alt="<?php echo esc_attr($_addr); ?>" loading="lazy" /><span class="<?php echo esc_attr($_cls); ?>"><?php echo esc_html($_label); ?></span><div><h3><?php echo esc_html($_h3); ?></h3><?php if ($_parts): ?><p><?php echo esc_html(implode(' · ', $_parts)); ?></p><?php endif; ?></div></article>
+            <?php endforeach; ?>
+          </div>
+          <div class="carousel-actions"><div><button data-scroll-sales="-1" aria-label="Previous"><svg><use href="#icon-chevron-left"/></svg></button><button data-scroll-sales="1" aria-label="Next"><svg><use href="#icon-chevron-right"/></svg></button></div><a href="<?php echo esc_url(home_url('/properties/')); ?>" class="btn-white">Xem Tất Cả Nhà</a></div>
         </div>
       </section>
-
-      <section class="neighborhoods">
+      <section class="page-section">
         <div class="container">
-          <div class="center reveal"><span class="h-kicker light">Where Ethan works</span><h2 class="h-section-title">Featured Neighborhoods</h2></div>
-          <div class="neighborhood-grid">
-            <a href="<?php echo esc_url(home_url('/mckinney/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-mckinney-tidal.jpg" alt="Homes in McKinney, Texas" /><div><h3>McKinney</h3><span>View homes â†’</span></div></a>
-            <a href="<?php echo esc_url(home_url('/lavon/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-newbuild.jpg" alt="Homes in Lavon, Texas" /><div><h3>Lavon</h3><span>View homes â†’</span></div></a>
-            <a href="<?php echo esc_url(home_url('/garland/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-listing-garland.jpg" alt="Homes in Garland, Texas" /><div><h3>Garland</h3><span>View homes â†’</span></div></a>
+          <span class="h-kicker reveal">Giải đáp thắc mắc</span>
+          <h2 class="h-section-title reveal">Câu hỏi <span>thường gặp</span></h2>
+          <div class="faq-list">
+            <div class="faq-item reveal">
+              <div class="faq-q">Nhà tôi hiện tại giá bao nhiêu?</div>
+              <div class="faq-a"><p>Nhắn tôi địa chỉ là được. Tôi kéo dữ liệu những căn đã bán gần đó và cho bạn con số thực tế — không phải con số để bạn vui, mà để bạn quyết định được.</p></div>
+            </div>
+            <div class="faq-item reveal">
+              <div class="faq-q">Tôi có cần sửa chữa nhà trước khi bán không?</div>
+              <div class="faq-a"><p>Không cần sửa hết. Tôi xem nhà và nói thẳng: cái này đáng làm, cái kia bỏ qua. Thường thì sơn lại và dọn sân vườn là đủ để ảnh đẹp hơn rõ rệt.</p></div>
+            </div>
+            <div class="faq-item reveal">
+              <div class="faq-q">Bán nhà mất bao lâu?</div>
+              <div class="faq-a"><p>Ở DFW trung bình 20–45 ngày. Tôi đăng Zillow, quay video tour, gửi email cho danh sách khách đang tìm nhà — mấy căn gần đây nhận offer trong vòng 1 tuần.</p></div>
+            </div>
+            <div class="faq-item reveal">
+              <div class="faq-q">Chi phí bán nhà gồm những gì?</div>
+              <div class="faq-a"><p>Chủ yếu là hoa hồng môi giới, thuế, và chi phí title/escrow. Tôi sẽ tính cho bạn một tờ net sheet — bạn biết chính xác mình nhận được bao nhiêu sau khi bán, trước khi ký bất cứ thứ gì.</p></div>
+            </div>
+            <div class="faq-item reveal">
+              <div class="faq-q">Tôi có thể vừa bán nhà cũ vừa mua nhà mới không?</div>
+              <div class="faq-a"><p>Được, tôi hay làm cái này. Quan trọng là kéo giãn đúng timeline để bạn không phải trả tiền thuê nhà tạm trong khoảng giữa. Tôi sẽ điều phối cả hai phía.</p></div>
+            </div>
           </div>
-          <div class="center last"><a href="<?php echo esc_url(home_url('/neighborhoods/')); ?>" class="btn-outline-light">View Tất cả Areas</a></div>
         </div>
       </section>
 
       <section class="newsletter">
         <div class="newsletter-inner reveal">
-          <h2 class="h-section-title">Kinh nghiệm gặp gỡ sự tận tâm</h2>
-          <p>Cập nhật xu hướng bất động sản Dallas-Fort Worth, nhà mới xây và góc nhìn thị trường mới nhất. Đừng bỏ lỡ những cơ hội có thể ảnh hưởng đến bước đi tiếp theo của bạn. Đăng ký để nhận thông tin về các căn nhà và ưu đãi đáng chú ý tại DFW.</p>
-          <form data-static-form><input type="text" placeholder="HỌ TÊN" /><input type="email" placeholder="EMAIL" /><button class="btn-gold">Gửi thông tin</button></form>
-          <label><input type="checkbox" /> <span>Tôi đồng ý để Ethan Dao liên hệ qua điện thoại, email và tin nhắn về dịch vụ bất động sản. Để dừng nhận tin, hãy trả lời "stop" bất cứ lúc nào hoặc trả lời "help" để được hỗ trợ. Bạn cũng có thể bấm liên kết hủy đăng ký trong email. Có thể phát sinh phí tin nhắn và dữ liệu. Tần suất tin nhắn có thể thay đổi. <a href="<?php echo esc_url(home_url('/contact/')); ?>">Chính Sách Bảo Mật</a>.</span></label>
+          <h2 class="h-section-title">Nhận tin <span>nhà mới</span></h2>
+          <p>Tôi gửi email khi thấy listing đáng xem hoặc giá khu vực bạn quan tâm thay đổi. Không spam.</p>
+          <form data-static-form class="newsletter-form"><div class="nested-input"><input type="email" placeholder="Địa chỉ email của bạn..." required /><button class="btn-gold">Đăng ký nhận tin</button></div><p class="form-success" hidden>Đã nhận. Tôi sẽ liên lạc sớm.</p></form>
+
         </div>
       </section>
 
-      <section id="work" class="work">
-        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ethan-home-brick2story.jpg" alt="" />
-        <div></div>
-        <div class="work-inner reveal">
-          <span class="h-kicker light">Cùng bắt đầu</span>
-          <h2 class="h-section-title">Làm việc cùng Ethan</h2>
-          <p>Sẵn sàng mua bán nhà tại Dallas-Fort Worth? Dù bạn mua căn nhà đầu tiên, bán nhà để đạt giá tốt, hay xây dựng danh mục đầu tư, Ethan Dao luôn đồng hành bằng sự rõ ràng, trung thực và tận tâm từ buổi xem nhà đầu tiên đến ngày closing.</p>
-          <a href="tel:(469) 989-5786" class="btn-gold">Kết Nối Ngay</a>
-        </div>
-      </section>
+
     </main>
     <footer class="footer">
       <div class="container">
-        <div class="footer-logo"><svg viewBox="0 0 200 200"><rect x="8" y="8" width="184" height="184" rx="16" fill="none" stroke="#0a0a0a" stroke-width="6"/><text x="100" y="100" dominant-baseline="central" text-anchor="middle" font-family="Google Sans Flex, sans-serif" font-weight="700" font-size="96" letter-spacing="-4" fill="#0a0a0a">ED</text></svg><span><strong>ETHAN DAO</strong><small>REALTOR</small></span></div>
-        <div class="footer-cols"><div><h3>Ethan Dao</h3><a href="tel:+14699895786">(469) 989-5786</a><a href="mailto:ethandao.realtor@gmail.com">ethandao.realtor@gmail.com</a></div><div><h3>Brokerage</h3><p>eXp Realty - Texas Ace Team</p><p>Serving the Dallas-Fort Worth Metroplex, TX</p></div><div><h3>Search</h3><p><a href="<?php echo esc_url(home_url('/browse-properties/')); ?>">Browse properties</a></p><p><a href="<?php echo esc_url(home_url('/home-valuation/')); ?>">Home valuation</a></p></div><div><h3>Connect</h3><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Schedule a consultation</a></p><p><a href="<?php echo esc_url(home_url('/agent-collaborations/')); ?>">Hợp tác đại lýs</a></p></div></div>
+        <div class="footer-logo" style="gap:0"><a href="<?php echo esc_url(home_url('/')); ?>" class="wordmark banner-wordmark" style="color:var(--ink-strong);text-decoration:none;"><span>Ethan Dao</span><sup>®</sup></a></div>
+        <div class="footer-cols"><div><h3>Ethan Dao</h3><a href="tel:+14699895786">(469) 989-5786</a><a href="mailto:ethandao.realtor@gmail.com">ethandao.realtor@gmail.com</a></div><div><h3>Môi giới</h3><p>eXp Realty - Texas Ace Team</p><p>Serving the Dallas-Fort Worth Metroplex, TX</p></div><div><h3>Tìm kiếm</h3><p><a href="<?php echo esc_url(home_url('/properties/')); ?>">Tìm nhà</a></p><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Định giá nhà</a></p></div><div><h3>Liên hệ</h3><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Đặt lịch tư vấn</a></p><p><a href="<?php echo esc_url(home_url('/contact/')); ?>">Hợp tác đại lý</a></p></div></div>
         <?php echo ethan_dao_vanilla_render_footer_nav(); ?>
         <p class="disclaimer">Ethan Dao (Tung Dao) is a licensed real estate agent in the State of Texas, affiliated with eXp Realty, LLC and the Texas Ace Team. Listing and sales information is intended solely for personal, non-commercial use to identify properties of interest. While generally considered reliable, this data is not guaranteed accurate; buyers are responsible for verifying all information independently. Equal Housing Opportunity.</p>
-        <p class="copyright">Â©2026 NTREIS. Tất cả rights reserved.</p>
+        <p class="copyright">©2026 NTREIS. All rights reserved.</p>
       </div>
-      <div class="bottom-bar"><span>ETHAN DAO - REALTORÂ®</span><span>eXp Realty - Texas Ace Team - Dallas-Fort Worth, TX</span><span>Copyright Â© 2026 | <a href="<?php echo esc_url(home_url('/contact/')); ?>">Chính sách bảo mật</a></span></div>
+      <div class="bottom-bar"><span>ETHAN DAO - REALTOR®</span><span>eXp Realty - Texas Ace Team - Dallas-Fort Worth, TX</span><span>Copyright © 2026 | <a href="<?php echo esc_url(home_url('/contact/')); ?>">Chính sách bảo mật</a></span></div>
     </footer>
-    <div class="floating-social"></div>
+    <div class="floating-social">
+      <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/default.svg" alt="Facebook" width="22" height="22" /></a>
+      <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/youtube/default.svg" alt="YouTube" width="22" height="22" /></a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/default.svg" alt="Instagram" width="22" height="22" /></a>
+      <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tiktok/default.svg" alt="TikTok" width="22" height="22" /></a>
+      <a href="https://zillow.com/" target="_blank" rel="noopener" aria-label="Zillow"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/zillow/default.svg" alt="Zillow" width="22" height="22" /></a>
+    </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/script.js?ver=1.0.3"></script>
+    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/script.js?ver=1.0.58"></script>
   <?php wp_footer(); ?>
   </body>
 </html>
+
 
 
 
