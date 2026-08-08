@@ -85,6 +85,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // 5b. Video carousel (mobile) — dùng Flickity như sales-track để kéo MƯỢT (có quán tính),
+  //     không nút chuyển slide. watchCSS: chỉ bật khi CSS khai báo (mobile, xem styles.css).
+  document.querySelectorAll('.vcm-track').forEach(track => {
+    if (typeof Flickity === 'undefined') return;
+    new Flickity(track, {
+      cellSelector: '.vcm-card',
+      cellAlign: 'left',
+      contain: true,
+      prevNextButtons: false,
+      pageDots: false,
+      dragThreshold: 6,
+      watchCSS: true
+    });
+  });
+
   // 6. Nav property search
   const navSearchToggle = document.querySelector('[data-nav-search-toggle]');
   const navSearchPanel  = document.querySelector('.nav-search-panel');
@@ -278,6 +293,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     });
+
+    // Re-render map tiles when viewport size changes (e.g. device rotation or DevTools responsive mode)
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() { map.invalidateSize(); }, 200);
+    });
   }
 
   // 7. Animated Counters for Stats Section
@@ -363,6 +385,37 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('click', () => {
     document.querySelectorAll('[data-custom-select].is-open').forEach(s => s.classList.remove('is-open'));
   });
+
+  // Testimonial mini — infinite marquee on mobile, no library
+  (function initTestimonialMarquee() {
+    if (window.innerWidth > 767) return;
+    document.querySelectorAll('.testimonial-mini').forEach(function(mini) {
+      var cards = Array.prototype.slice.call(mini.querySelectorAll('article'));
+      if (!cards.length) return;
+
+      var track = document.createElement('div');
+      track.className = 'tst-marquee';
+
+      // Original set
+      cards.forEach(function(c) { track.appendChild(c); });
+      // Cloned set — makes -50% loop seamless
+      cards.forEach(function(c) { track.appendChild(c.cloneNode(true)); });
+
+      mini.classList.add('tst-marquee-wrap');
+      mini.appendChild(track);
+
+      // Pause while finger is down
+      mini.addEventListener('touchstart', function() {
+        track.classList.add('is-paused');
+      }, { passive: true });
+      mini.addEventListener('touchend', function() {
+        track.classList.remove('is-paused');
+      }, { passive: true });
+      mini.addEventListener('touchcancel', function() {
+        track.classList.remove('is-paused');
+      }, { passive: true });
+    });
+  })();
 
   // Platforms marquee on mobile
   if (window.innerWidth <= 767) {
